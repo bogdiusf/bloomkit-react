@@ -12,7 +12,7 @@
 @source "../components/**/*.{ts,tsx}";
 @source "../utils/**/*.ts";
 @source "../hooks/**/*.ts";
-@source "../../dev/**/*.tsx";
+@source "./_safelist.ts";
 
 body {
   font-family: var(--bloom-font);

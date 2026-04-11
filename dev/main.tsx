@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import "../src/styles/bloom.css";
+import "../src/styles/playground.css";
 
 import {
   Accordion,

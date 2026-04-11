@@ -1,0 +1,14 @@
+/**
+ * Playground-only stylesheet.
+ *
+ * This file is imported by dev/main.tsx (and ONLY by dev/main.tsx). It
+ * layers the playground's own class scan on top of the shipped `bloom.css`
+ * so demo code in `dev/**` can use Tailwind utilities that aren't part of
+ * the library's shipped CSS.
+ *
+ * Never import this from `src/**`. Never ship it. tsup builds `bloom.css`,
+ * not this file.
+ */
+@import "./bloom.css";
+
+@source "../../dev/**/*.tsx";

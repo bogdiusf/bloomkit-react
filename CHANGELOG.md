@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-04-11
+
+### Added
+
+- `BreathingBox` — wraps any child in a subtle breathing scale animation. The first dedicated wellness component, making the "components that breathe" tagline literal. Three `intensity` levels (`subtle` / `soft` / `bold`), configurable `duration` and `delay`, `asChild` support via Radix Slot. Respects `prefers-reduced-motion` via the library's global rule. CSS-only, SSR-safe.
+- `useIsMobile` hook — shadcn-style viewport-width detection. Returns `true` when the viewport is narrower than 768px. Uses `matchMedia` with a listener, SSR-safe.
+
+### Changed
+
+- **Breaking:** `Toggle` → `Switch`. The existing `Toggle` component is a wrapper around Radix's Switch primitive and was misnamed. Consumers using `<Toggle>` must rename imports and JSX to `<Switch>`. No functional or visual changes beyond the name — `label`, `checked`, `defaultChecked`, `onCheckedChange`, `disabled`, and `id` props all behave identically.
+
 ## [0.2.23] - 2026-04-11
 
 ### Added

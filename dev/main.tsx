@@ -39,8 +39,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Separator,
   Skeleton,
   Slider,
+  Spinner,
   Tabs,
   TabsContent,
   TabsList,
@@ -803,6 +805,42 @@ function App() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+            </section>
+
+            {/* Separator */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Separator
+              </h2>
+              <div className="flex flex-col gap-[var(--space-md)] max-w-[400px]">
+                <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-body)]">
+                  Above the line
+                </p>
+                <Separator />
+                <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-body)]">
+                  Below the line
+                </p>
+                <div className="flex items-center gap-[var(--space-md)] h-[40px]">
+                  <span className="color-[var(--bloom-text-secondary)]">Left</span>
+                  <Separator orientation="vertical" />
+                  <span className="color-[var(--bloom-text-secondary)]">Middle</span>
+                  <Separator orientation="vertical" />
+                  <span className="color-[var(--bloom-text-secondary)]">Right</span>
+                </div>
+              </div>
+            </section>
+
+            {/* Spinner */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Spinner
+              </h2>
+              <div className="flex items-center gap-[var(--space-2xl)]">
+                <Spinner size="sm" />
+                <Spinner size="md" />
+                <Spinner size="lg" />
+                <Spinner size="md" label="Saving..." />
+              </div>
             </section>
           </div>
         </div>

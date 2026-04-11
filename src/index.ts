@@ -76,8 +76,10 @@ export {
   type SelectTriggerProps,
   SelectValue,
 } from "./components/select";
+export { Separator, type SeparatorProps } from "./components/separator";
 export { Skeleton, type SkeletonProps, type SkeletonVariants, skeletonVariants } from "./components/skeleton";
 export { Slider, type SliderProps } from "./components/slider";
+export { Spinner, type SpinnerProps } from "./components/spinner";
 export {
   Tabs,
   TabsContent,

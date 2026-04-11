@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Run biome on staged files only. Applies safe fixes automatically,
+# then re-stages the fixed files so the corrections are included in the commit.
+
+pnpm biome check --staged --write --no-errors-on-unmatched || exit 1
+
+# Re-stage any files biome modified
+git update-index --again

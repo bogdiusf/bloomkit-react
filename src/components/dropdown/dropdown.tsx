@@ -32,6 +32,7 @@ export function Dropdown({ trigger, children, className }: DropdownProps) {
     </DropdownMenuPrimitive.Root>
   );
 }
+Dropdown.displayName = "Dropdown";
 
 export interface DropdownItemProps extends ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> {}
 
@@ -53,6 +54,7 @@ export function DropdownItem({ className, ...props }: DropdownItemProps) {
     />
   );
 }
+DropdownItem.displayName = "DropdownItem";
 
 export interface DropdownSeparatorProps extends ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator> {}
 
@@ -64,3 +66,4 @@ export function DropdownSeparator({ className, ...props }: DropdownSeparatorProp
     />
   );
 }
+DropdownSeparator.displayName = "DropdownSeparator";

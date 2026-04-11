@@ -5,7 +5,9 @@ export default defineConfig({
   format: ["esm", "cjs"],
   dts: {
     compilerOptions: {
-      ignoreDeprecations: "6.0" as any,
+      // ignoreDeprecations is a valid TS 5.x / 6.x option but isn't in the
+      // tsup type surface — cast through unknown to keep strict typing.
+      ignoreDeprecations: "6.0" as unknown as undefined,
     },
   },
   splitting: true,

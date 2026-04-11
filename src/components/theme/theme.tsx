@@ -36,6 +36,44 @@ function resolveMode(mode: ColorMode): "light" | "dark" {
   return mode;
 }
 
+function collectPaletteKeys(paletteMap: Map<string, BloomPalette>): Set<string> {
+  const allKeys = new Set<string>();
+  for (const p of paletteMap.values()) {
+    if (p.light) {
+      for (const k of Object.keys(p.light)) {
+        allKeys.add(k);
+      }
+    }
+    if (p.dark) {
+      for (const k of Object.keys(p.dark)) {
+        allKeys.add(k);
+      }
+    }
+  }
+  return allKeys;
+}
+
+function applyPalette(paletteMap: Map<string, BloomPalette>, paletteName: string, mode: "light" | "dark"): void {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(mode);
+
+  const allKeys = collectPaletteKeys(paletteMap);
+  for (const key of allKeys) {
+    root.style.removeProperty(key);
+  }
+
+  const currentPalette = paletteMap.get(paletteName);
+  if (!currentPalette) return;
+
+  const vars = mode === "dark" ? currentPalette.dark : currentPalette.light;
+  if (!vars) return;
+
+  for (const [key, value] of Object.entries(vars)) {
+    root.style.setProperty(key, value);
+  }
+}
+
 export interface ThemeProviderProps {
   children: ReactNode;
   defaultColorMode?: ColorMode;
@@ -94,32 +132,9 @@ export function ThemeProvider({
 
   // Apply color mode class + palette vars
   useEffect(() => {
-    const root = document.documentElement;
     const resolved = resolveMode(colorMode);
     setResolvedMode(resolved);
-
-    // Set dark/light class
-    root.classList.remove("light", "dark");
-    root.classList.add(resolved);
-
-    // Collect all var keys from all palettes to clear
-    const allKeys = new Set<string>();
-    paletteMap.current.forEach((p) => {
-      if (p.light) Object.keys(p.light).forEach((k) => allKeys.add(k));
-      if (p.dark) Object.keys(p.dark).forEach((k) => allKeys.add(k));
-    });
-    allKeys.forEach((key) => root.style.removeProperty(key));
-
-    // Apply current palette vars for resolved mode
-    const currentPalette = paletteMap.current.get(palette);
-    if (currentPalette) {
-      const vars = resolved === "dark" ? currentPalette.dark : currentPalette.light;
-      if (vars) {
-        Object.entries(vars).forEach(([key, value]) => {
-          root.style.setProperty(key, value);
-        });
-      }
-    }
+    applyPalette(paletteMap.current, palette, resolved);
   }, [colorMode, palette]);
 
   // Listen for OS theme changes when in system mode
@@ -130,27 +145,7 @@ export function ThemeProvider({
     const handler = () => {
       const resolved = resolveMode("system");
       setResolvedMode(resolved);
-      const root = document.documentElement;
-      root.classList.remove("light", "dark");
-      root.classList.add(resolved);
-
-      // Re-apply palette for new mode
-      const allKeys = new Set<string>();
-      paletteMap.current.forEach((p) => {
-        if (p.light) Object.keys(p.light).forEach((k) => allKeys.add(k));
-        if (p.dark) Object.keys(p.dark).forEach((k) => allKeys.add(k));
-      });
-      allKeys.forEach((key) => root.style.removeProperty(key));
-
-      const currentPalette = paletteMap.current.get(palette);
-      if (currentPalette) {
-        const vars = resolved === "dark" ? currentPalette.dark : currentPalette.light;
-        if (vars) {
-          Object.entries(vars).forEach(([key, value]) => {
-            root.style.setProperty(key, value);
-          });
-        }
-      }
+      applyPalette(paletteMap.current, palette, resolved);
     };
 
     mq.addEventListener("change", handler);

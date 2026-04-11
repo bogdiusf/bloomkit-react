@@ -21,7 +21,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
           "border border-[var(--bloom-surface2)]",
           "bg-[var(--bloom-surface)]",
           "transition-all duration-[var(--bloom-duration-fast)] ease-[var(--bloom-ease)]",
-          "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/30",
+          "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30",
           "disabled:cursor-not-allowed disabled:opacity-50",
           "data-[state=checked]:bg-[var(--bloom-accent1-deep)] data-[state=checked]:border-[var(--bloom-accent1-deep)]",
           className

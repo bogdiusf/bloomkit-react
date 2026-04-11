@@ -9,6 +9,6 @@ export const inputVariants = cva([
   "border border-[var(--bloom-surface2)]",
   "transition-all duration-[var(--bloom-duration)] ease-[var(--bloom-ease)]",
   "placeholder:color-[var(--bloom-text-secondary)]/60",
-  "focus:outline-none focus:ring-[4px] focus:ring-[var(--bloom-accent1)]/20 focus:border-[var(--bloom-accent1-deep)]",
+  "focus:outline-none focus:ring-[length:var(--bloom-focus-ring-width)] focus:ring-[var(--bloom-accent1)]/20 focus:border-[var(--bloom-accent1-deep)]",
   "disabled:opacity-50 disabled:cursor-not-allowed",
 ]);

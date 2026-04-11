@@ -47,3 +47,4 @@ export function Popover({
     </PopoverPrimitive.Root>
   );
 }
+Popover.displayName = "Popover";

@@ -5,6 +5,7 @@
 @import "./tokens/radius.css";
 @import "./tokens/motion.css";
 @import "./tokens/shadows.css";
+@import "./tokens/focus.css";
 @import "./animations/keyframes.css";
 
 @plugin "tailwindcss-animate";

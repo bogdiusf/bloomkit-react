@@ -55,7 +55,7 @@ export function Modal({ open, onOpenChange, title, description, children, classN
               "color-[var(--bloom-text-secondary)] hover:color-[var(--bloom-text)]",
               "hover:bg-[var(--bloom-surface2)]",
               "transition-colors duration-[var(--bloom-duration-fast)]",
-              "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/30"
+              "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30"
             )}
             aria-label="Close"
           >
@@ -68,3 +68,4 @@ export function Modal({ open, onOpenChange, title, description, children, classN
     </DialogPrimitive.Root>
   );
 }
+Modal.displayName = "Modal";

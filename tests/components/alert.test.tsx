@@ -16,18 +16,18 @@ describe("Alert", () => {
   });
 
   it("renders success variant", () => {
-    render(<Alert variant="success">Success</Alert>);
-    expect(screen.getByText("Success")).toBeInTheDocument();
+    render(<Alert variant="success">All good</Alert>);
+    expect(screen.getByText("All good")).toBeInTheDocument();
   });
 
   it("renders warning variant", () => {
-    render(<Alert variant="warning">Warning</Alert>);
-    expect(screen.getByText("Warning")).toBeInTheDocument();
+    render(<Alert variant="warning">Heads up</Alert>);
+    expect(screen.getByText("Heads up")).toBeInTheDocument();
   });
 
   it("renders error variant", () => {
-    render(<Alert variant="error">Error</Alert>);
-    expect(screen.getByText("Error")).toBeInTheDocument();
+    render(<Alert variant="error">Something broke</Alert>);
+    expect(screen.getByText("Something broke")).toBeInTheDocument();
   });
 
   it("renders title and description", () => {

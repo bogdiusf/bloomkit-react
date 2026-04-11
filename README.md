@@ -206,26 +206,7 @@ The `"bloom"` palette is always available as the default. Any value you don't sp
 
 ## Contributing
 
-Bloomkit is open source and contributions are genuinely welcome — whether that's a bug fix, a new component, a typo in the docs, or just an idea. No contribution is too small.
-
-**Ways to help:**
-
-- **Found a bug or have an idea?** [Open an issue](https://github.com/bogdiusf/bloomkit-react/issues)
-- **Want to fix something?** Fork the repo, make your changes, and open a pull request
-- **Building something with Bloom?** Share it — I'd love to see what people make
-
-**Local setup:**
-
-```bash
-git clone https://github.com/bogdiusf/bloomkit-react.git
-cd bloomkit-react
-pnpm install
-pnpm dev         # runs the playground at localhost:5173
-pnpm test        # runs the test suite
-pnpm build       # builds the library
-```
-
-The playground in [`dev/main.tsx`](dev/main.tsx) is where all components are showcased — add your component there while you build it.
+Contributions are welcome — bug fixes, new components, documentation improvements, or ideas. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, workflow, and conventions. All contributors must follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 

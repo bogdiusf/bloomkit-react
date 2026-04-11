@@ -7,7 +7,7 @@ export const buttonVariants = cva(
     "h-[44px] px-[28px]",
     "rounded-[var(--bloom-radius-pill)]",
     "transition-all duration-[var(--bloom-duration)] ease-[var(--bloom-ease)]",
-    "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/30",
+    "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30",
     "disabled:pointer-events-none disabled:opacity-50",
     "relative overflow-hidden cursor-pointer",
   ],

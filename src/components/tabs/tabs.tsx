@@ -26,7 +26,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, ComponentPropsWithoutRe
         "hover:text-[var(--bloom-text)]",
         "data-[state=active]:text-[var(--bloom-text)]",
         "data-[state=active]:bg-[var(--bloom-surface2)]",
-        "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/30",
+        "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30",
         "disabled:pointer-events-none disabled:opacity-50",
         className
       )}

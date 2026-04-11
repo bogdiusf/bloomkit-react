@@ -78,7 +78,7 @@ export function DatePicker({ value, onChange, placeholder = "Select date", class
             "border border-[var(--bloom-surface2)]",
             "text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)]",
             "transition-all duration-[var(--bloom-duration)] ease-[var(--bloom-ease)]",
-            "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/20",
+            "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/20",
             !formattedValue && "color-[var(--bloom-text-secondary)]",
             className
           )}

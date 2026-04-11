@@ -34,7 +34,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(({ className, dis
         "shadow-[0_1px_4px_rgba(0,0,0,0.1)]",
         "transition-transform duration-[var(--bloom-duration-fast)] ease-[var(--bloom-ease)]",
         "hover:scale-110",
-        "focus-visible:outline-none focus-visible:ring-[4px] focus-visible:ring-[var(--bloom-accent1)]/30",
+        "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30",
         "cursor-grab active:cursor-grabbing"
       )}
     />

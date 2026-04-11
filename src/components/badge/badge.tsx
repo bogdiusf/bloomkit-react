@@ -1,6 +1,6 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
-import { badgeVariants, type BadgeVariants } from "./badge.variants";
+import { type BadgeVariants, badgeVariants } from "./badge.variants";
 
 const dotColorMap = {
   sage: "bg-[var(--bloom-accent1-deep)]",

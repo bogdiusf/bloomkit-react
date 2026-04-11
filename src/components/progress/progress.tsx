@@ -1,41 +1,32 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
-import { progressTrackVariants, progressFillVariants } from "./progress.variants";
+import { progressFillVariants, progressTrackVariants } from "./progress.variants";
 
 export interface ProgressProps extends HTMLAttributes<HTMLDivElement> {
   value?: number;
 }
 
-export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
-  ({ className, value = 0, ...props }, ref) => {
-    const clampedValue = Math.min(100, Math.max(0, value));
-    return (
-      <div
-        ref={ref}
-        role="progressbar"
-        aria-valuenow={clampedValue}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        className={cn(progressTrackVariants(), className)}
-        {...props}
-      >
-        <div
-          className={progressFillVariants()}
-          style={{ width: `${clampedValue}%` }}
-        >
-          {/* Animated glow sweep */}
-          <div
-            className="absolute inset-0 rounded-[var(--bloom-radius-pill)] overflow-hidden"
-          >
-            <div
-              className="absolute inset-y-0 w-[60%] bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[bloom-sweep_2.5s_ease-in-out_infinite]"
-            />
-          </div>
+export const Progress = forwardRef<HTMLDivElement, ProgressProps>(({ className, value = 0, ...props }, ref) => {
+  const clampedValue = Math.min(100, Math.max(0, value));
+  return (
+    <div
+      ref={ref}
+      role="progressbar"
+      aria-valuenow={clampedValue}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      className={cn(progressTrackVariants(), className)}
+      {...props}
+    >
+      <div className={progressFillVariants()} style={{ width: `${clampedValue}%` }}>
+        {/* Animated glow sweep */}
+        <div className="absolute inset-0 rounded-[var(--bloom-radius-pill)] overflow-hidden">
+          <div className="absolute inset-y-0 w-[60%] bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[bloom-sweep_2.5s_ease-in-out_infinite]" />
         </div>
       </div>
-    );
-  }
-);
+    </div>
+  );
+});
 Progress.displayName = "Progress";
 
 export interface ProgressCircularProps extends HTMLAttributes<HTMLDivElement> {
@@ -61,10 +52,16 @@ export const ProgressCircular = forwardRef<HTMLDivElement, ProgressCircularProps
         className={cn("inline-flex", className)}
         {...props}
       >
-        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
           <defs>
-            <linearGradient id={`bloom-sweep-grad-${size}`} gradientUnits="userSpaceOnUse"
-              x1={size / 2} y1="0" x2={size / 2} y2={size}>
+            <linearGradient
+              id={`bloom-sweep-grad-${size}`}
+              gradientUnits="userSpaceOnUse"
+              x1={size / 2}
+              y1="0"
+              x2={size / 2}
+              y2={size}
+            >
               <stop offset="0%" stopColor="white" stopOpacity="0" />
               <stop offset="50%" stopColor="white" stopOpacity="0.3" />
               <stop offset="100%" stopColor="white" stopOpacity="0" />

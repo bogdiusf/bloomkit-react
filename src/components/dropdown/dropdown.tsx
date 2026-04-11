@@ -1,5 +1,5 @@
-import { type ReactNode, type ComponentPropsWithoutRef } from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "../../utils/cn";
 
 export interface DropdownProps {

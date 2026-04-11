@@ -25,11 +25,7 @@ export const buttonVariants = cva(
           "hover:-translate-y-[2px] hover:shadow-[var(--bloom-shadow-hover)]",
           "active:translate-y-0 active:scale-[0.98]",
         ],
-        ghost: [
-          "bg-transparent text-[var(--bloom-text)]",
-          "hover:bg-[var(--bloom-surface)]",
-          "active:scale-[0.98]",
-        ],
+        ghost: ["bg-transparent text-[var(--bloom-text)]", "hover:bg-[var(--bloom-surface)]", "active:scale-[0.98]"],
         accent: [
           "bg-[var(--bloom-accent3-deep)] text-white",
           "hover:-translate-y-[2px] hover:shadow-[var(--bloom-shadow-hover)]",

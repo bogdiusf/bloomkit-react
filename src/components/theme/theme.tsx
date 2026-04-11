@@ -1,12 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  type ReactNode,
-} from "react";
+import { createContext, type ReactNode, useCallback, useContext, useEffect, useRef, useState } from "react";
 
 type ColorMode = "light" | "dark" | "system";
 
@@ -60,10 +52,7 @@ export function ThemeProvider({
   storageKey = "bloom-theme",
 }: ThemeProviderProps) {
   const paletteMap = useRef(
-    new Map<string, BloomPalette>([
-      ["bloom", { name: "bloom" }],
-      ...palettes.map((p) => [p.name, p] as const),
-    ])
+    new Map<string, BloomPalette>([["bloom", { name: "bloom" }], ...palettes.map((p) => [p.name, p] as const)])
   );
 
   const [colorMode, setColorModeState] = useState<ColorMode>(() => {
@@ -80,9 +69,7 @@ export function ThemeProvider({
     return defaultPalette;
   });
 
-  const [resolvedMode, setResolvedMode] = useState<"light" | "dark">(() =>
-    resolveMode(colorMode)
-  );
+  const [resolvedMode, setResolvedMode] = useState<"light" | "dark">(() => resolveMode(colorMode));
 
   const setColorMode = useCallback(
     (mode: ColorMode) => {

@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from "vitest";
 import { renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it } from "vitest";
 import { useReducedMotion } from "../../src/hooks/use-reduced-motion";
 
 describe("useReducedMotion", () => {

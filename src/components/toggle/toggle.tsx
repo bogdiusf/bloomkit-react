@@ -1,5 +1,5 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
+import { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import { cn } from "../../utils/cn";
 
 export interface ToggleProps extends ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {
@@ -7,10 +7,14 @@ export interface ToggleProps extends ComponentPropsWithoutRef<typeof SwitchPrimi
 }
 
 export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
-  ({ className, label, ...props }, ref) => (
-    <label className="inline-flex items-center gap-[var(--space-md)]">
+  ({ className, label, id: idProp, ...props }, ref) => {
+    const generatedId = useId();
+    const id = idProp ?? generatedId;
+
+    const toggle = (
       <SwitchPrimitive.Root
         ref={ref}
+        id={id}
         className={cn(
           "peer inline-flex h-[28px] w-[50px] shrink-0 cursor-pointer items-center",
           "rounded-[var(--bloom-radius-pill)]",
@@ -34,12 +38,21 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           )}
         />
       </SwitchPrimitive.Root>
-      {label && (
-        <span className="text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)]">
+    );
+
+    if (!label) return toggle;
+
+    return (
+      <div className="inline-flex items-center gap-[var(--space-md)]">
+        {toggle}
+        <label
+          htmlFor={id}
+          className="text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)] cursor-pointer"
+        >
           {label}
-        </span>
-      )}
-    </label>
-  )
+        </label>
+      </div>
+    );
+  }
 );
 Toggle.displayName = "Toggle";

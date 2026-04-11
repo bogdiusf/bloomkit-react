@@ -1,2 +1,2 @@
 export { ToastProvider, useToast } from "./toast";
-export { toastVariants, type ToastVariants } from "./toast.variants";
+export { type ToastVariants, toastVariants } from "./toast.variants";

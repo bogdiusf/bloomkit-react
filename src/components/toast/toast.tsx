@@ -1,13 +1,6 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-  type ReactNode,
-} from "react";
+import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from "react";
 import { cn } from "../../utils/cn";
-import { toastVariants, toastIconColors } from "./toast.variants";
+import { toastIconColors, toastVariants } from "./toast.variants";
 
 interface ToastData {
   id: string;
@@ -57,26 +50,36 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 
 const variantIcons: Record<string, ReactNode> = {
   success: (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-labelledby="toast-success-title">
+      <title id="toast-success-title">Success</title>
       <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M6.5 10.5L8.5 12.5L13.5 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M6.5 10.5L8.5 12.5L13.5 7.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   error: (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-labelledby="toast-error-title">
+      <title id="toast-error-title">Error</title>
       <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" />
       <path d="M7.5 7.5L12.5 12.5M12.5 7.5L7.5 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
   warning: (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-labelledby="toast-warning-title">
+      <title id="toast-warning-title">Warning</title>
       <path d="M10 3L18 17H2L10 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <path d="M10 8.5V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       <circle cx="10" cy="14.5" r="0.75" fill="currentColor" />
     </svg>
   ),
   info: (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-labelledby="toast-info-title">
+      <title id="toast-info-title">Information</title>
       <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" />
       <path d="M10 9V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       <circle cx="10" cy="6.5" r="0.75" fill="currentColor" />
@@ -95,13 +98,9 @@ function ToastItem({ toast: t, onDismiss }: { toast: ToastData; onDismiss: (id: 
 
   return (
     <div className={cn(toastVariants({ variant: t.variant }))}>
-      <div className={cn("shrink-0 mt-[1px]", toastIconColors[variant])}>
-        {variantIcons[variant]}
-      </div>
+      <div className={cn("shrink-0 mt-[1px]", toastIconColors[variant])}>{variantIcons[variant]}</div>
       <div className="flex-1 min-w-0">
-        <p className="text-[length:var(--bloom-text-body)] font-medium color-[var(--bloom-text)]">
-          {t.title}
-        </p>
+        <p className="text-[length:var(--bloom-text-body)] font-medium color-[var(--bloom-text)]">{t.title}</p>
         {t.description && (
           <p className="text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)] mt-[var(--space-xs)]">
             {t.description}
@@ -109,11 +108,12 @@ function ToastItem({ toast: t, onDismiss }: { toast: ToastData; onDismiss: (id: 
         )}
       </div>
       <button
+        type="button"
         onClick={() => onDismiss(t.id)}
         className="color-[var(--bloom-text-secondary)] hover:color-[var(--bloom-text)] transition-colors shrink-0 rounded-full h-[28px] w-[28px] inline-flex items-center justify-center hover:bg-[var(--bloom-surface2)]"
         aria-label="Dismiss"
       >
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </button>

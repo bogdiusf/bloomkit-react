@@ -1,5 +1,5 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "../../utils/cn";
 
 export type SelectProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
@@ -40,6 +40,7 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
+          aria-hidden="true"
         >
           <path d="M4 6l4 4 4-4" />
         </svg>
@@ -73,9 +74,7 @@ export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
         {...props}
       >
         <SelectPrimitive.Viewport
-          className={cn(
-            position === "popper" && "w-full min-w-[var(--radix-select-trigger-width)]"
-          )}
+          className={cn(position === "popper" && "w-full min-w-[var(--radix-select-trigger-width)]")}
         >
           {children}
         </SelectPrimitive.Viewport>
@@ -87,54 +86,51 @@ SelectContent.displayName = "SelectContent";
 
 export type SelectItemProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Item>;
 
-export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
-  ({ className, children, ...props }, ref) => (
-    <SelectPrimitive.Item
-      ref={ref}
-      className={cn(
-        "relative flex items-center",
-        "rounded-[var(--bloom-radius-sm)]",
-        "px-[var(--space-md)] py-[var(--space-sm)] pl-[var(--space-2xl)]",
-        "text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)]",
-        "cursor-pointer select-none outline-none",
-        "transition-colors duration-[var(--bloom-duration-fast)]",
-        "data-[highlighted]:bg-[var(--bloom-surface2)]",
-        "data-[disabled]:opacity-50 data-[disabled]:pointer-events-none",
-        className
-      )}
-      {...props}
-    >
-      <span className="absolute left-[var(--space-sm)] flex h-[16px] w-[16px] items-center justify-center">
-        <SelectPrimitive.ItemIndicator>
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M2.5 6l2.5 2.5 4.5-5" />
-          </svg>
-        </SelectPrimitive.ItemIndicator>
-      </span>
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    </SelectPrimitive.Item>
-  )
-);
+export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Item
+    ref={ref}
+    className={cn(
+      "relative flex items-center",
+      "rounded-[var(--bloom-radius-sm)]",
+      "px-[var(--space-md)] py-[var(--space-sm)] pl-[var(--space-2xl)]",
+      "text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)]",
+      "cursor-pointer select-none outline-none",
+      "transition-colors duration-[var(--bloom-duration-fast)]",
+      "data-[highlighted]:bg-[var(--bloom-surface2)]",
+      "data-[disabled]:opacity-50 data-[disabled]:pointer-events-none",
+      className
+    )}
+    {...props}
+  >
+    <span className="absolute left-[var(--space-sm)] flex h-[16px] w-[16px] items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M2.5 6l2.5 2.5 4.5-5" />
+        </svg>
+      </SelectPrimitive.ItemIndicator>
+    </span>
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+));
 SelectItem.displayName = "SelectItem";
 
 export type SelectSeparatorProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>;
 
-export const SelectSeparator = forwardRef<HTMLDivElement, SelectSeparatorProps>(
-  ({ className, ...props }, ref) => (
-    <SelectPrimitive.Separator
-      ref={ref}
-      className={cn("h-px my-[var(--space-xs)] bg-[var(--bloom-surface2)]", className)}
-      {...props}
-    />
-  )
-);
+export const SelectSeparator = forwardRef<HTMLDivElement, SelectSeparatorProps>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
+    ref={ref}
+    className={cn("h-px my-[var(--space-xs)] bg-[var(--bloom-surface2)]", className)}
+    {...props}
+  />
+));
 SelectSeparator.displayName = "SelectSeparator";

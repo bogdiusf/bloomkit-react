@@ -1,5 +1,5 @@
-import { type ReactNode } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import type { ReactNode } from "react";
 import { cn } from "../../utils/cn";
 
 export type DrawerSide = "right" | "left" | "top" | "bottom";
@@ -42,15 +42,7 @@ const sideSize: Record<DrawerSide, string> = {
   bottom: "w-full",
 };
 
-export function Drawer({
-  open,
-  onOpenChange,
-  title,
-  description,
-  children,
-  side = "right",
-  className,
-}: DrawerProps) {
+export function Drawer({ open, onOpenChange, title, description, children, side = "right", className }: DrawerProps) {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
@@ -104,7 +96,7 @@ export function Drawer({
             )}
             aria-label="Close"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </DialogPrimitive.Close>

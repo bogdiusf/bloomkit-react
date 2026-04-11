@@ -1,32 +1,58 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "../src/styles/bloom.css";
 
 import {
-  Button,
-  Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
-  Input, Textarea,
-  Toggle,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  Avatar,
+  AvatarGroup,
   Badge,
-  Alert, AlertTitle, AlertDescription,
-  Avatar, AvatarGroup,
-  Tooltip, TooltipProvider,
-  Progress, ProgressCircular,
-  Slider,
-  Modal,
-  Dropdown, DropdownItem, DropdownSeparator,
-  Tabs, TabsList, TabsTrigger, TabsContent,
-  DatePicker,
-  ToastProvider, useToast,
-  Skeleton,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
   Checkbox,
-  RadioGroup, RadioGroupItem,
-  Select, SelectTrigger, SelectValue, SelectContent, SelectItem,
-  OTPInput,
+  DatePicker,
   Drawer,
+  Dropdown,
+  DropdownItem,
+  DropdownSeparator,
+  Input,
+  Modal,
+  OTPInput,
   Popover,
-  Accordion, AccordionItem, AccordionTrigger, AccordionContent,
-  ThemeProvider, useTheme,
+  Progress,
+  ProgressCircular,
+  RadioGroup,
+  RadioGroupItem,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Skeleton,
+  Slider,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Textarea,
+  ThemeProvider,
+  ToastProvider,
+  Toggle,
+  Tooltip,
+  TooltipProvider,
+  useTheme,
+  useToast,
 } from "../src";
 
 /* ─── Palette definitions ─── */
@@ -209,10 +235,18 @@ function ToastDemo() {
       <Button variant="success" onClick={() => toast({ title: "Saved successfully", variant: "success" })}>
         Success
       </Button>
-      <Button variant="danger" onClick={() => toast({ title: "Something went wrong", description: "Please try again later", variant: "error" })}>
+      <Button
+        variant="danger"
+        onClick={() =>
+          toast({ title: "Something went wrong", description: "Please try again later", variant: "error" })
+        }
+      >
         Error
       </Button>
-      <Button variant="warning" onClick={() => toast({ title: "Careful", description: "This action cannot be undone", variant: "warning" })}>
+      <Button
+        variant="warning"
+        onClick={() => toast({ title: "Careful", description: "This action cannot be undone", variant: "warning" })}
+      >
         Warning
       </Button>
       <Button variant="accent" onClick={() => toast({ title: "New update available", variant: "info" })}>
@@ -238,7 +272,6 @@ function App() {
       <ToastProvider>
         <div className="min-h-screen p-[var(--space-3xl)]">
           <div className="max-w-[800px] mx-auto flex flex-col gap-[var(--space-3xl)]">
-
             {/* Logo Preview */}
             <section className="flex flex-col items-center gap-[var(--space-lg)]">
               <img src="./logo.png" alt="Bloom logo" width={512} height={512} />
@@ -248,7 +281,16 @@ function App() {
             <header className="flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-[var(--space-md)]">
-                  <svg width="48" height="48" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 512 512"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-labelledby="bloom-logo-title"
+                  >
+                    <title id="bloom-logo-title">Bloom logo</title>
                     <defs>
                       <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#7EC8A0" />
@@ -259,10 +301,42 @@ function App() {
                         <stop offset="100%" stopColor="#6BBF8A" />
                       </linearGradient>
                     </defs>
-                    <ellipse cx="210" cy="310" rx="90" ry="140" transform="rotate(45 210 310)" fill="url(#g1)" opacity="0.7" />
-                    <ellipse cx="302" cy="310" rx="90" ry="140" transform="rotate(-45 302 310)" fill="url(#g1)" opacity="0.7" />
-                    <ellipse cx="210" cy="230" rx="90" ry="140" transform="rotate(-45 210 230)" fill="url(#g2)" opacity="0.8" />
-                    <ellipse cx="302" cy="230" rx="90" ry="140" transform="rotate(45 302 230)" fill="url(#g2)" opacity="0.8" />
+                    <ellipse
+                      cx="210"
+                      cy="310"
+                      rx="90"
+                      ry="140"
+                      transform="rotate(45 210 310)"
+                      fill="url(#g1)"
+                      opacity="0.7"
+                    />
+                    <ellipse
+                      cx="302"
+                      cy="310"
+                      rx="90"
+                      ry="140"
+                      transform="rotate(-45 302 310)"
+                      fill="url(#g1)"
+                      opacity="0.7"
+                    />
+                    <ellipse
+                      cx="210"
+                      cy="230"
+                      rx="90"
+                      ry="140"
+                      transform="rotate(-45 210 230)"
+                      fill="url(#g2)"
+                      opacity="0.8"
+                    />
+                    <ellipse
+                      cx="302"
+                      cy="230"
+                      rx="90"
+                      ry="140"
+                      transform="rotate(45 302 230)"
+                      fill="url(#g2)"
+                      opacity="0.8"
+                    />
                     <circle cx="256" cy="270" r="24" fill="#3D6B4A" opacity="0.9" />
                   </svg>
                   <h1 className="font-[family-name:var(--bloom-font-display)] text-[var(--bloom-text-display-xl)] font-light tracking-[var(--bloom-letter-tight)] color-[var(--bloom-text)]">
@@ -274,14 +348,29 @@ function App() {
                 </p>
               </div>
               <div className="flex flex-col gap-[var(--space-sm)] items-end">
-                <Dropdown trigger={
-                  <Button variant="secondary" className="min-w-[180px] justify-between">
-                    {label}
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="ml-[var(--space-sm)]">
-                      <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Button>
-                }>
+                <Dropdown
+                  trigger={
+                    <Button variant="secondary" className="min-w-[180px] justify-between">
+                      {label}
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        className="ml-[var(--space-sm)]"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 5l3 3 3-3"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Button>
+                  }
+                >
                   <DropdownItem onSelect={() => setPalette("bloom")}>
                     {palette === "bloom" ? "● " : "○ "}Bloom (Default)
                   </DropdownItem>
@@ -305,7 +394,9 @@ function App() {
 
             {/* Buttons */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Buttons</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Buttons
+              </h2>
               <div className="flex flex-wrap gap-[var(--space-md)]">
                 <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
@@ -320,7 +411,9 @@ function App() {
 
             {/* Cards */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Cards</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Cards
+              </h2>
               <div className="grid grid-cols-2 gap-[var(--space-lg)]">
                 <Card variant="interactive">
                   <CardHeader>
@@ -328,7 +421,9 @@ function App() {
                     <CardDescription>Hover to see the lift effect</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="color-[var(--bloom-text-secondary)]">This card responds to hover with a gentle lift and border reveal.</p>
+                    <p className="color-[var(--bloom-text-secondary)]">
+                      This card responds to hover with a gentle lift and border reveal.
+                    </p>
                   </CardContent>
                 </Card>
                 <Card variant="featured">
@@ -348,7 +443,9 @@ function App() {
 
             {/* Inputs */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Inputs</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Inputs
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)] max-w-[400px]">
                 <Input placeholder="Your name" />
                 <Input type="email" placeholder="your@email.com" />
@@ -358,7 +455,9 @@ function App() {
 
             {/* Toggle */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Toggle</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Toggle
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
                 <Toggle label="Ambient motion" defaultChecked />
                 <Toggle label="Dark mode" />
@@ -368,7 +467,9 @@ function App() {
 
             {/* Checkbox */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Checkbox</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Checkbox
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
                 <Checkbox label="Accept terms and conditions" />
                 <Checkbox label="Subscribe to updates" defaultChecked />
@@ -379,7 +480,9 @@ function App() {
 
             {/* Radio Group */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Radio Group</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Radio Group
+              </h2>
               <div className="flex gap-[var(--space-3xl)]">
                 <RadioGroup defaultValue="calm">
                   <RadioGroupItem value="calm" label="Calm" />
@@ -392,7 +495,9 @@ function App() {
 
             {/* Select */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Select</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Select
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)] max-w-[300px]">
                 <Select>
                   <SelectTrigger>
@@ -418,9 +523,13 @@ function App() {
 
             {/* Badges */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Badges</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Badges
+              </h2>
               <div className="flex flex-wrap gap-[var(--space-md)]">
-                <Badge variant="sage" dot>Active</Badge>
+                <Badge variant="sage" dot>
+                  Active
+                </Badge>
                 <Badge variant="sand">Pending</Badge>
                 <Badge variant="lavender">Draft</Badge>
                 <Badge variant="rose">Archived</Badge>
@@ -429,7 +538,9 @@ function App() {
 
             {/* Alerts */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Alerts</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Alerts
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
                 <Alert variant="info">
                   <AlertTitle>Information</AlertTitle>
@@ -452,7 +563,9 @@ function App() {
 
             {/* Avatars */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Avatars</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Avatars
+              </h2>
               <div className="flex items-center gap-[var(--space-lg)]">
                 <Avatar initials="JD" size="sm" />
                 <Avatar initials="AB" size="md" />
@@ -467,7 +580,9 @@ function App() {
 
             {/* Tooltip */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Tooltip</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Tooltip
+              </h2>
               <div className="flex gap-[var(--space-md)]">
                 <Tooltip content="This is a tooltip">
                   <Button variant="secondary">Hover me</Button>
@@ -480,7 +595,9 @@ function App() {
 
             {/* Progress */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Progress</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Progress
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
                 <Progress value={progress} />
                 <div className="flex items-center gap-[var(--space-lg)]">
@@ -498,10 +615,21 @@ function App() {
 
             {/* Modal */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Modal</h2>
-              <Button variant="secondary" onClick={() => setModalOpen(true)}>Open Modal</Button>
-              <Modal open={modalOpen} onOpenChange={setModalOpen} title="Hello, Bloom" description="This modal breathes with the rest of the interface.">
-                <p className="color-[var(--bloom-text-secondary)]">Modal content goes here. Notice the backdrop blur and smooth animation.</p>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Modal
+              </h2>
+              <Button variant="secondary" onClick={() => setModalOpen(true)}>
+                Open Modal
+              </Button>
+              <Modal
+                open={modalOpen}
+                onOpenChange={setModalOpen}
+                title="Hello, Bloom"
+                description="This modal breathes with the rest of the interface."
+              >
+                <p className="color-[var(--bloom-text-secondary)]">
+                  Modal content goes here. Notice the backdrop blur and smooth animation.
+                </p>
                 <div className="flex justify-end mt-[var(--space-lg)]">
                   <Button onClick={() => setModalOpen(false)}>Close</Button>
                 </div>
@@ -510,7 +638,9 @@ function App() {
 
             {/* Dropdown */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Dropdown</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Dropdown
+              </h2>
               <Dropdown trigger={<Button variant="secondary">Options</Button>}>
                 <DropdownItem>Edit</DropdownItem>
                 <DropdownItem>Duplicate</DropdownItem>
@@ -521,7 +651,9 @@ function App() {
 
             {/* Tabs */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Tabs</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Tabs
+              </h2>
               <Tabs defaultValue="overview">
                 <TabsList variant="pill">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -548,19 +680,25 @@ function App() {
 
             {/* Date Picker */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Date Picker</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Date Picker
+              </h2>
               <DatePicker value={date} onChange={setDate} placeholder="Pick a date" />
             </section>
 
             {/* Toast */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Toast</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Toast
+              </h2>
               <ToastDemo />
             </section>
 
             {/* Skeleton */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Skeleton</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Skeleton
+              </h2>
               <Card>
                 <CardContent>
                   <div className="flex items-center gap-[var(--space-md)]">
@@ -576,13 +714,15 @@ function App() {
 
             {/* OTP Input */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">OTP Input</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                OTP Input
+              </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
                 <OTPInput
                   length={6}
                   value={otp}
                   onChange={setOtp}
-                  onComplete={(val) => console.log("OTP complete:", val)}
+                  onComplete={(val) => console.warn("OTP complete:", val)}
                 />
                 <p className="text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)]">
                   Value: {otp || "—"}
@@ -592,9 +732,18 @@ function App() {
 
             {/* Drawer */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Drawer</h2>
-              <Button variant="secondary" onClick={() => setDrawerOpen(true)}>Open Drawer</Button>
-              <Drawer open={drawerOpen} onOpenChange={setDrawerOpen} title="Settings" description="Manage your preferences.">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Drawer
+              </h2>
+              <Button variant="secondary" onClick={() => setDrawerOpen(true)}>
+                Open Drawer
+              </Button>
+              <Drawer
+                open={drawerOpen}
+                onOpenChange={setDrawerOpen}
+                title="Settings"
+                description="Manage your preferences."
+              >
                 <div className="flex flex-col gap-[var(--space-md)] mt-[var(--space-lg)]">
                   <Toggle label="Notifications" defaultChecked />
                   <Toggle label="Sound effects" />
@@ -605,14 +754,22 @@ function App() {
 
             {/* Popover */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Popover</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Popover
+              </h2>
               <Popover trigger={<Button variant="secondary">Open Popover</Button>}>
                 <div className="flex flex-col gap-[var(--space-md)]">
-                  <p className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-body)] font-medium color-[var(--bloom-text)]">Quick Actions</p>
+                  <p className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-body)] font-medium color-[var(--bloom-text)]">
+                    Quick Actions
+                  </p>
                   <Input placeholder="Search..." />
                   <div className="flex gap-[var(--space-sm)]">
-                    <Button variant="primary" className="flex-1">Save</Button>
-                    <Button variant="ghost" className="flex-1">Cancel</Button>
+                    <Button variant="primary" className="flex-1">
+                      Save
+                    </Button>
+                    <Button variant="ghost" className="flex-1">
+                      Cancel
+                    </Button>
                   </div>
                 </div>
               </Popover>
@@ -620,29 +777,33 @@ function App() {
 
             {/* Accordion */}
             <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">Accordion</h2>
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Accordion
+              </h2>
               <Accordion type="single" collapsible className="max-w-[500px]">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>What is Bloom?</AccordionTrigger>
                   <AccordionContent>
-                    Bloom is an ambient, organic React component library built for wellness apps, creative tools, and any product where the interface should feel alive.
+                    Bloom is an ambient, organic React component library built for wellness apps, creative tools, and
+                    any product where the interface should feel alive.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
                   <AccordionTrigger>Is it customizable?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. All components use CSS custom properties and accept className props. You can also switch between palettes at runtime.
+                    Yes. All components use CSS custom properties and accept className props. You can also switch
+                    between palettes at runtime.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Does it support dark mode?</AccordionTrigger>
                   <AccordionContent>
-                    Absolutely. Wrap your app with ThemeProvider and use the useTheme hook to toggle between light, dark, and system modes.
+                    Absolutely. Wrap your app with ThemeProvider and use the useTheme hook to toggle between light,
+                    dark, and system modes.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </section>
-
           </div>
         </div>
       </ToastProvider>
@@ -652,7 +813,10 @@ function App() {
 
 const paletteList = Object.values(palettes).filter((p) => p.name !== "bloom");
 
-createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("Root element not found");
+
+createRoot(rootElement).render(
   <ThemeProvider defaultColorMode="system" palettes={paletteList}>
     <App />
   </ThemeProvider>

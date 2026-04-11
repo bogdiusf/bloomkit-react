@@ -1,1 +1,1 @@
-export { builtInPalettes, midnightGarden, desertRose, oceanMist } from "./built-in";
+export { builtInPalettes, desertRose, midnightGarden, oceanMist } from "./built-in";

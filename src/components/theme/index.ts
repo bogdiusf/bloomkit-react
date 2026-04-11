@@ -1,1 +1,1 @@
-export { ThemeProvider, useTheme, type ThemeProviderProps, type BloomPalette } from "./theme";
+export { type BloomPalette, ThemeProvider, type ThemeProviderProps, useTheme } from "./theme";

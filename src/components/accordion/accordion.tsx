@@ -1,34 +1,19 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "../../utils/cn";
 
 export type AccordionProps = ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ className, ...props }, ref) => (
-    <AccordionPrimitive.Root
-      ref={ref}
-      className={cn("w-full", className)}
-      {...props}
-    />
-  )
-);
+export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(({ className, ...props }, ref) => (
+  <AccordionPrimitive.Root ref={ref} className={cn("w-full", className)} {...props} />
+));
 Accordion.displayName = "Accordion";
 
 export type AccordionItemProps = ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>;
 
-export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
-  ({ className, ...props }, ref) => (
-    <AccordionPrimitive.Item
-      ref={ref}
-      className={cn(
-        "border-b border-[var(--bloom-surface2)]",
-        className
-      )}
-      {...props}
-    />
-  )
-);
+export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(({ className, ...props }, ref) => (
+  <AccordionPrimitive.Item ref={ref} className={cn("border-b border-[var(--bloom-surface2)]", className)} {...props} />
+));
 AccordionItem.displayName = "AccordionItem";
 
 export type AccordionTriggerProps = ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>;
@@ -61,6 +46,7 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerPr
           strokeLinecap="round"
           strokeLinejoin="round"
           className="shrink-0 transition-transform duration-[var(--bloom-duration-fast)] ease-[var(--bloom-ease)]"
+          aria-hidden="true"
         >
           <path d="M4 6l4 4 4-4" />
         </svg>

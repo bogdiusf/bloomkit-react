@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it } from "vitest";
 import { Button } from "../../src/components/button";
 
 describe("Button", () => {
@@ -33,7 +33,15 @@ describe("Button", () => {
   it("handles click events", async () => {
     const user = userEvent.setup();
     let clicked = false;
-    render(<Button onClick={() => { clicked = true; }}>Click</Button>);
+    render(
+      <Button
+        onClick={() => {
+          clicked = true;
+        }}
+      >
+        Click
+      </Button>
+    );
     await user.click(screen.getByRole("button"));
     expect(clicked).toBe(true);
   });
@@ -54,7 +62,15 @@ describe("Button", () => {
 
   it("forwards ref", () => {
     let ref: HTMLButtonElement | null = null;
-    render(<Button ref={(el) => { ref = el; }}>Ref</Button>);
+    render(
+      <Button
+        ref={(el) => {
+          ref = el;
+        }}
+      >
+        Ref
+      </Button>
+    );
     expect(ref).toBeInstanceOf(HTMLButtonElement);
   });
 });

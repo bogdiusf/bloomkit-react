@@ -1,10 +1,10 @@
 export {
   Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   CardContent,
+  CardDescription,
   CardFooter,
+  CardHeader,
   type CardProps,
+  CardTitle,
 } from "./card";
-export { cardVariants, type CardVariants } from "./card.variants";
+export { type CardVariants, cardVariants } from "./card.variants";

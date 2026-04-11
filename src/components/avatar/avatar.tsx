@@ -1,6 +1,6 @@
-import { forwardRef, useState, type HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes, useState } from "react";
 import { cn } from "../../utils/cn";
-import { avatarVariants, type AvatarVariants } from "./avatar.variants";
+import { type AvatarVariants, avatarVariants } from "./avatar.variants";
 
 export type AvatarProps = HTMLAttributes<HTMLDivElement> &
   AvatarVariants & {
@@ -33,13 +33,7 @@ Avatar.displayName = "Avatar";
 
 export interface AvatarGroupProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("flex -space-x-2", className)}
-      {...props}
-    />
-  )
-);
+export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("flex -space-x-2", className)} {...props} />
+));
 AvatarGroup.displayName = "AvatarGroup";

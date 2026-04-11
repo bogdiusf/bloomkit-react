@@ -1,2 +1,2 @@
-export { Progress, ProgressCircular, type ProgressProps, type ProgressCircularProps } from "./progress";
-export { progressTrackVariants, progressFillVariants } from "./progress.variants";
+export { Progress, ProgressCircular, type ProgressCircularProps, type ProgressProps } from "./progress";
+export { progressFillVariants, progressTrackVariants } from "./progress.variants";

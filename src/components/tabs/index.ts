@@ -1,2 +1,2 @@
-export { Tabs, TabsList, TabsTrigger, TabsContent, type TabsListProps } from "./tabs";
-export { tabsListVariants, type TabsListVariants } from "./tabs.variants";
+export { Tabs, TabsContent, TabsList, type TabsListProps, TabsTrigger } from "./tabs";
+export { type TabsListVariants, tabsListVariants } from "./tabs.variants";

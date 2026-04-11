@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it } from "vitest";
 import { Tooltip, TooltipProvider } from "../../src/components/tooltip";
 
 describe("Tooltip", () => {
@@ -8,7 +8,7 @@ describe("Tooltip", () => {
     render(
       <TooltipProvider>
         <Tooltip content="Tooltip text">
-          <button>Hover me</button>
+          <button type="button">Hover me</button>
         </Tooltip>
       </TooltipProvider>
     );
@@ -20,7 +20,7 @@ describe("Tooltip", () => {
     render(
       <TooltipProvider delayDuration={0}>
         <Tooltip content="Tooltip text">
-          <button>Hover me</button>
+          <button type="button">Hover me</button>
         </Tooltip>
       </TooltipProvider>
     );
@@ -32,7 +32,7 @@ describe("Tooltip", () => {
     render(
       <TooltipProvider>
         <Tooltip content="Bottom" side="bottom">
-          <button>Trigger</button>
+          <button type="button">Trigger</button>
         </Tooltip>
       </TooltipProvider>
     );

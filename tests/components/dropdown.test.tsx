@@ -1,12 +1,12 @@
-import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it, vi } from "vitest";
 import { Dropdown, DropdownItem } from "../../src/components/dropdown";
 
 describe("Dropdown", () => {
   it("renders trigger", () => {
     render(
-      <Dropdown trigger={<button>Open</button>}>
+      <Dropdown trigger={<button type="button">Open</button>}>
         <DropdownItem>Item 1</DropdownItem>
       </Dropdown>
     );
@@ -16,7 +16,7 @@ describe("Dropdown", () => {
   it("shows items when trigger is clicked", async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown trigger={<button>Open</button>}>
+      <Dropdown trigger={<button type="button">Open</button>}>
         <DropdownItem>Item 1</DropdownItem>
         <DropdownItem>Item 2</DropdownItem>
       </Dropdown>
@@ -30,7 +30,7 @@ describe("Dropdown", () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
     render(
-      <Dropdown trigger={<button>Open</button>}>
+      <Dropdown trigger={<button type="button">Open</button>}>
         <DropdownItem onSelect={onSelect}>Click me</DropdownItem>
       </Dropdown>
     );
@@ -42,7 +42,7 @@ describe("Dropdown", () => {
   it("renders disabled items", async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown trigger={<button>Open</button>}>
+      <Dropdown trigger={<button type="button">Open</button>}>
         <DropdownItem disabled>Disabled</DropdownItem>
       </Dropdown>
     );

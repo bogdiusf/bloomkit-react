@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it } from "vitest";
 import { Input, Textarea } from "../../src/components/input";
 
 describe("Input", () => {
@@ -34,7 +34,14 @@ describe("Input", () => {
 
   it("forwards ref", () => {
     let ref: HTMLInputElement | null = null;
-    render(<Input ref={(el) => { ref = el; }} placeholder="Ref" />);
+    render(
+      <Input
+        ref={(el) => {
+          ref = el;
+        }}
+        placeholder="Ref"
+      />
+    );
     expect(ref).toBeInstanceOf(HTMLInputElement);
   });
 });

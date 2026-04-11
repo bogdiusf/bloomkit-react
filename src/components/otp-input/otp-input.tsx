@@ -1,4 +1,13 @@
-import { forwardRef, useRef, useCallback, useState, useEffect, type KeyboardEvent, type ClipboardEvent } from "react";
+import {
+  type ClipboardEvent,
+  forwardRef,
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 import { cn } from "../../utils/cn";
 import { inputVariants } from "../input/input.variants";
 
@@ -14,6 +23,7 @@ export interface OTPInputProps {
 
 export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
   ({ length = 6, value = "", onChange, onComplete, disabled = false, className, autoFocus = false }, ref) => {
+    const baseId = useId();
     const [digits, setDigits] = useState<string[]>(() => {
       const arr = new Array(length).fill("");
       value.split("").forEach((char, i) => {
@@ -96,32 +106,38 @@ export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
 
     return (
       <div ref={ref} className={cn("flex items-center gap-[var(--space-sm)]", className)}>
-        {digits.map((digit, index) => (
-          <input
-            key={index}
-            ref={(el) => { inputRefs.current[index] = el; }}
-            type="text"
-            inputMode="numeric"
-            autoComplete="one-time-code"
-            maxLength={1}
-            value={digit}
-            disabled={disabled}
-            autoFocus={autoFocus && index === 0}
-            onChange={(e) => {
-              const char = e.target.value.slice(-1);
-              handleInput(index, char);
-            }}
-            onKeyDown={(e) => handleKeyDown(index, e)}
-            onPaste={handlePaste}
-            onFocus={(e) => e.target.select()}
-            className={cn(
-              inputVariants(),
-              "h-[52px] w-[44px] text-center",
-              "text-[length:var(--bloom-text-heading)]",
-              "px-0"
-            )}
-          />
-        ))}
+        {digits.map((digit, index) => {
+          const slotKey = `${baseId}-${index}`;
+          return (
+            <input
+              key={slotKey}
+              ref={(el) => {
+                inputRefs.current[index] = el;
+              }}
+              type="text"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              maxLength={1}
+              value={digit}
+              disabled={disabled}
+              // biome-ignore lint/a11y/noAutofocus: autoFocus is intentional opt-in behavior for OTP flows
+              autoFocus={autoFocus && index === 0}
+              onChange={(e) => {
+                const char = e.target.value.slice(-1);
+                handleInput(index, char);
+              }}
+              onKeyDown={(e) => handleKeyDown(index, e)}
+              onPaste={handlePaste}
+              onFocus={(e) => e.target.select()}
+              className={cn(
+                inputVariants(),
+                "h-[52px] w-[44px] text-center",
+                "text-[length:var(--bloom-text-heading)]",
+                "px-0"
+              )}
+            />
+          );
+        })}
       </div>
     );
   }

@@ -1,21 +1,17 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
-import { cardVariants, type CardVariants } from "./card.variants";
+import { type CardVariants, cardVariants } from "./card.variants";
 
 export type CardProps = HTMLAttributes<HTMLDivElement> & CardVariants;
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, ...props }, ref) => (
-    <div ref={ref} className={cn(cardVariants({ variant }), className)} {...props} />
-  )
-);
+export const Card = forwardRef<HTMLDivElement, CardProps>(({ className, variant, ...props }, ref) => (
+  <div ref={ref} className={cn(cardVariants({ variant }), className)} {...props} />
+));
 Card.displayName = "Card";
 
-export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-[var(--space-xl)] pb-0", className)} {...props} />
-  )
-);
+export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-[var(--space-xl)] pb-0", className)} {...props} />
+));
 CardHeader.displayName = "CardHeader";
 
 export const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
@@ -36,7 +32,10 @@ export const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<H
   ({ className, ...props }, ref) => (
     <p
       ref={ref}
-      className={cn("text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)] mt-[var(--space-xs)]", className)}
+      className={cn(
+        "text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)] mt-[var(--space-xs)]",
+        className
+      )}
       {...props}
     />
   )
@@ -44,15 +43,11 @@ export const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<H
 CardDescription.displayName = "CardDescription";
 
 export const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-[var(--space-xl)]", className)} {...props} />
-  )
+  ({ className, ...props }, ref) => <div ref={ref} className={cn("p-[var(--space-xl)]", className)} {...props} />
 );
 CardContent.displayName = "CardContent";
 
-export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-[var(--space-xl)] pt-0 flex items-center", className)} {...props} />
-  )
-);
+export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-[var(--space-xl)] pt-0 flex items-center", className)} {...props} />
+));
 CardFooter.displayName = "CardFooter";

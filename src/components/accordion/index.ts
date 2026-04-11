@@ -1,10 +1,10 @@
 export {
   Accordion,
-  AccordionItem,
-  AccordionTrigger,
   AccordionContent,
-  type AccordionProps,
-  type AccordionItemProps,
-  type AccordionTriggerProps,
   type AccordionContentProps,
+  AccordionItem,
+  type AccordionItemProps,
+  type AccordionProps,
+  AccordionTrigger,
+  type AccordionTriggerProps,
 } from "./accordion";

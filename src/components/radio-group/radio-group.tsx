@@ -1,18 +1,12 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import { cn } from "../../utils/cn";
 
 export type RadioGroupProps = ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>;
 
-export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ className, ...props }, ref) => (
-    <RadioGroupPrimitive.Root
-      ref={ref}
-      className={cn("flex flex-col gap-[var(--space-sm)]", className)}
-      {...props}
-    />
-  )
-);
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(({ className, ...props }, ref) => (
+  <RadioGroupPrimitive.Root ref={ref} className={cn("flex flex-col gap-[var(--space-sm)]", className)} {...props} />
+));
 RadioGroup.displayName = "RadioGroup";
 
 export type RadioGroupItemProps = ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
@@ -20,10 +14,14 @@ export type RadioGroupItemProps = ComponentPropsWithoutRef<typeof RadioGroupPrim
 };
 
 export const RadioGroupItem = forwardRef<HTMLButtonElement, RadioGroupItemProps>(
-  ({ className, label, ...props }, ref) => {
+  ({ className, label, id: idProp, ...props }, ref) => {
+    const generatedId = useId();
+    const id = idProp ?? generatedId;
+
     const item = (
       <RadioGroupPrimitive.Item
         ref={ref}
+        id={id}
         className={cn(
           "h-[20px] w-[20px] shrink-0 cursor-pointer",
           "rounded-full",
@@ -46,12 +44,15 @@ export const RadioGroupItem = forwardRef<HTMLButtonElement, RadioGroupItemProps>
     if (!label) return item;
 
     return (
-      <label className="inline-flex items-center gap-[var(--space-sm)] cursor-pointer">
+      <div className="inline-flex items-center gap-[var(--space-sm)]">
         {item}
-        <span className="text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)]">
+        <label
+          htmlFor={id}
+          className="text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)] cursor-pointer"
+        >
           {label}
-        </span>
-      </label>
+        </label>
+      </div>
     );
   }
 );

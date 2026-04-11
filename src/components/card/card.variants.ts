@@ -17,9 +17,7 @@ export const cardVariants = cva(
           "hover:border-[var(--bloom-surface2)]",
           "hover:-translate-y-[4px] hover:shadow-[var(--bloom-shadow-hover)]",
         ],
-        featured: [
-          "border border-[var(--bloom-accent1)]/30",
-        ],
+        featured: ["border border-[var(--bloom-accent1)]/30"],
       },
     },
     defaultVariants: {

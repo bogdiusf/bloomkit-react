@@ -1,5 +1,5 @@
-import { type ReactNode } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import type { ReactNode } from "react";
 import { cn } from "../../utils/cn";
 
 export interface ModalProps {
@@ -37,16 +37,12 @@ export function Modal({ open, onOpenChange, title, description, children, classN
           )}
         >
           {title && (
-            <DialogPrimitive.Title
-              className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)] mb-[var(--space-sm)]"
-            >
+            <DialogPrimitive.Title className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)] mb-[var(--space-sm)]">
               {title}
             </DialogPrimitive.Title>
           )}
           {description && (
-            <DialogPrimitive.Description
-              className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)] mb-[var(--space-lg)]"
-            >
+            <DialogPrimitive.Description className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)] mb-[var(--space-lg)]">
               {description}
             </DialogPrimitive.Description>
           )}
@@ -63,7 +59,7 @@ export function Modal({ open, onOpenChange, title, description, children, classN
             )}
             aria-label="Close"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </DialogPrimitive.Close>

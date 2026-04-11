@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.23] - 2026-04-11
+
+### Added
+
+- `Button` — new `size` prop with `sm` / `md` / `lg` / `icon` presets. `md` remains the default and matches the previous sizing exactly, so existing usage is unchanged. `icon` is a 44×44 square for icon-only buttons (compose with `variant="ghost"` or `variant="secondary"`).
+
+### Changed
+
+- Include `CHANGELOG.md`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, and `SECURITY.md` in the published npm tarball via the `files` field, so the "Contributing" / "Code of Conduct" / etc. links on the npm package page resolve correctly.
+
 ## [0.2.22] - 2026-04-11
 
 ### Fixed

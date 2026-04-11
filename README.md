@@ -35,6 +35,19 @@ Add the fonts to your HTML `<head>`:
 />
 ```
 
+## Compatibility
+
+Bloom ships its own pre-compiled CSS — **no Tailwind setup required in your app**. Import `@bloomkit/react/styles.css` and every component renders correctly, whether your app uses Tailwind, CSS modules, plain CSS, or anything else.
+
+If your app **does** run Tailwind, bloom coexists cleanly alongside it. Both bundles use the same cascade layers and bloom's tokens are namespaced under `--bloom-*`, so there's no collision between your Tailwind output and bloom's. You can import both in the same entry file.
+
+A few things to be aware of:
+
+- **Tailwind v4 recommended.** Bloom is built with Tailwind v4.2+. Combining it with a Tailwind v3 pipeline mostly works, but the preflight (reset) differs between major versions and you may see minor inconsistencies.
+- **Bloom ships Tailwind's preflight.** That's a feature for apps with no existing reset. If your app already has a custom CSS reset, know that bloom's CSS layers over it — for any property both sides set, bloom's value will generally win (cascade-layer order).
+- **Tokens are namespaced.** Every custom property bloom exposes starts with `--bloom-*` or `--space-*`. Nothing bloom ships touches generic names like `--color-primary` or `--radius`, so there's zero risk of clobbering your own design tokens.
+- **Components own their own styling.** Overrides via `className` merge cleanly (see Customization below) — no need to fight specificity or `!important`.
+
 ## Customization
 
 All components accept a `className` prop. Tailwind utility classes merge cleanly with bloom's defaults — your classes always win.

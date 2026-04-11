@@ -73,4 +73,40 @@ describe("Button", () => {
     );
     expect(ref).toBeInstanceOf(HTMLButtonElement);
   });
+
+  it("applies md size classes by default", () => {
+    render(<Button>Default</Button>);
+    const btn = screen.getByRole("button");
+    expect(btn.className).toContain("h-[44px]");
+    expect(btn.className).toContain("px-[28px]");
+    expect(btn.className).toContain("text-[14px]");
+  });
+
+  it("applies sm size classes", () => {
+    render(<Button size="sm">Small</Button>);
+    const btn = screen.getByRole("button");
+    expect(btn.className).toContain("h-[36px]");
+    expect(btn.className).toContain("px-[20px]");
+    expect(btn.className).toContain("text-[13px]");
+  });
+
+  it("applies lg size classes", () => {
+    render(<Button size="lg">Large</Button>);
+    const btn = screen.getByRole("button");
+    expect(btn.className).toContain("h-[52px]");
+    expect(btn.className).toContain("px-[36px]");
+    expect(btn.className).toContain("text-[16px]");
+  });
+
+  it("applies icon size classes (square, zero padding)", () => {
+    render(
+      <Button size="icon" aria-label="settings">
+        <span aria-hidden="true">⚙</span>
+      </Button>
+    );
+    const btn = screen.getByRole("button", { name: "settings" });
+    expect(btn.className).toContain("h-[44px]");
+    expect(btn.className).toContain("w-[44px]");
+    expect(btn.className).toContain("p-0");
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "@bloomkit/react",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "description": "An ambient, organic UI component library. Components that breathe.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -15,7 +15,11 @@
     "./styles.css": "./dist/index.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
   ],
   "sideEffects": [
     "*.css"

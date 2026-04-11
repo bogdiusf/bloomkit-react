@@ -3,8 +3,7 @@ import { cva } from "class-variance-authority";
 export const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
-    "font-[family-name:var(--bloom-font)] text-[14px] font-normal",
-    "h-[44px] px-[28px]",
+    "font-[family-name:var(--bloom-font)] font-normal",
     "rounded-[var(--bloom-radius-pill)]",
     "transition-all duration-[var(--bloom-duration)] ease-[var(--bloom-ease)]",
     "focus-visible:outline-none focus-visible:ring-[length:var(--bloom-focus-ring-width)] focus-visible:ring-[var(--bloom-accent1)]/30",
@@ -13,6 +12,12 @@ export const buttonVariants = cva(
   ],
   {
     variants: {
+      size: {
+        sm: "h-[36px] px-[20px] text-[13px]",
+        md: "h-[44px] px-[28px] text-[14px]",
+        lg: "h-[52px] px-[36px] text-[16px]",
+        icon: "h-[44px] w-[44px] p-0 text-[14px]",
+      },
       variant: {
         primary: [
           "bg-[var(--bloom-accent1-deep)] text-white",
@@ -50,6 +55,7 @@ export const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "primary",
+      size: "md",
     },
   }
 );

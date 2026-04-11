@@ -409,6 +409,17 @@ function App() {
                 <Button variant="danger">Danger</Button>
                 <Button disabled>Disabled</Button>
               </div>
+              <div className="flex flex-wrap items-center gap-[var(--space-md)]">
+                <Button size="sm">Small</Button>
+                <Button size="md">Medium</Button>
+                <Button size="lg">Large</Button>
+                <Button size="icon" variant="secondary" aria-label="Settings">
+                  <span aria-hidden="true">⚙</span>
+                </Button>
+                <Button size="icon" variant="ghost" aria-label="Close">
+                  <span aria-hidden="true">✕</span>
+                </Button>
+              </div>
             </section>
 
             {/* Cards */}

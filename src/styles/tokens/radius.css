@@ -1,0 +1,7 @@
+:root {
+  --bloom-radius-sm: 12px;
+  --bloom-radius: 16px;
+  --bloom-radius-lg: 24px;
+  --bloom-radius-pill: 999px;
+  --bloom-radius-checkbox: 4px;
+}

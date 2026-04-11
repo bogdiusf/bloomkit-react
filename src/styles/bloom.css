@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radius.css";
+@import "./tokens/motion.css";
+@import "./tokens/shadows.css";
+@import "./animations/keyframes.css";
+
+@plugin "tailwindcss-animate";
+@source "../components/**/*.{ts,tsx}";
+@source "../utils/**/*.ts";
+@source "../hooks/**/*.ts";
+@source "../../dev/**/*.tsx";
+
+body {
+  font-family: var(--bloom-font);
+  font-size: var(--bloom-text-body);
+  line-height: var(--bloom-leading-body);
+  color: var(--bloom-text);
+  background-color: var(--bloom-bg);
+}

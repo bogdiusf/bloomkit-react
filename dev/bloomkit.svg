@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7EC8A0" />
+      <stop offset="100%" stop-color="#4A9E6E" />
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A8D8B9" />
+      <stop offset="100%" stop-color="#6BBF8A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Bottom-left petal -->
+  <ellipse cx="210" cy="310" rx="90" ry="140" transform="rotate(45 210 310)" fill="url(#g1)" opacity="0.7" />
+
+  <!-- Bottom-right petal -->
+  <ellipse cx="302" cy="310" rx="90" ry="140" transform="rotate(-45 302 310)" fill="url(#g1)" opacity="0.7" />
+
+  <!-- Top-left petal -->
+  <ellipse cx="210" cy="230" rx="90" ry="140" transform="rotate(-45 210 230)" fill="url(#g2)" opacity="0.8" />
+
+  <!-- Top-right petal -->
+  <ellipse cx="302" cy="230" rx="90" ry="140" transform="rotate(45 302 230)" fill="url(#g2)" opacity="0.8" />
+
+  <!-- Center dot -->
+  <circle cx="256" cy="270" r="24" fill="#3D6B4A" opacity="0.9" />
+</svg>

@@ -1,0 +1,19 @@
+:root {
+  --bloom-shadow: 0 2px 24px rgba(44, 42, 37, 0.06);
+  --bloom-shadow-hover: 0 8px 40px rgba(44, 42, 37, 0.1);
+  --bloom-blur-blob: blur(60px);
+  --bloom-blur-card: blur(40px);
+}
+
+:root.dark,
+[data-theme="dark"] {
+  --bloom-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
+  --bloom-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not([data-theme="light"]) {
+    --bloom-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
+    --bloom-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+}

@@ -1,0 +1,6 @@
+:root {
+  --bloom-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --bloom-duration: 500ms;
+  --bloom-duration-slow: 800ms;
+  --bloom-duration-fast: 300ms;
+}

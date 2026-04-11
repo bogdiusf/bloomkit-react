@@ -6,9 +6,9 @@ An ambient, organic React component library built for wellness apps, creative to
 
 Soft shapes. Breathing motion. Living color.
 
-**Docs & demos:** [bloomkit.dev](https://bloomkit.dev)
+**Docs & demos:** [bloomkit.dev](https://bloomkit.dev) • **GitHub:** [bogdiusf/bloomkit-react](https://github.com/bogdiusf/bloomkit-react)
 
-> **Early days.** Bloomkit is actively evolving — components are being added and refined week by week. Expect rough edges, breaking changes before `1.0`, and new pieces landing often. Feedback, issues, and ideas are very welcome.
+> **Early days.** Bloomkit is actively evolving — components are being added and refined week by week. Feedback, issues, and ideas are very welcome.
 
 ## Install
 
@@ -204,6 +204,31 @@ The `"bloom"` palette is always available as the default. Any value you don't sp
 | `--bloom-ease` | Easing curve |
 | `--space-xs` through `--space-4xl` | Spacing scale |
 
+## Contributing
+
+Bloomkit is open source and contributions are genuinely welcome — whether that's a bug fix, a new component, a typo in the docs, or just an idea. No contribution is too small.
+
+**Ways to help:**
+
+- **Found a bug or have an idea?** [Open an issue](https://github.com/bogdiusf/bloomkit-react/issues)
+- **Want to fix something?** Fork the repo, make your changes, and open a pull request
+- **Building something with Bloom?** Share it — I'd love to see what people make
+
+**Local setup:**
+
+```bash
+git clone https://github.com/bogdiusf/bloomkit-react.git
+cd bloomkit-react
+pnpm install
+pnpm dev         # runs the playground at localhost:5173
+pnpm test        # runs the test suite
+pnpm build       # builds the library
+```
+
+The playground in [`dev/main.tsx`](dev/main.tsx) is where all components are showcased — add your component there while you build it.
+
 ## License
 
-MIT © Bogdan Filipovici
+MIT © [Bogdan Filipovici](https://github.com/bogdiusf)
+
+Free to use, modify, fork, and distribute. See [LICENSE](LICENSE) for details.

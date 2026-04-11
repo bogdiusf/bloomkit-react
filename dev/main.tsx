@@ -13,6 +13,7 @@ import {
   Avatar,
   AvatarGroup,
   Badge,
+  BreathingBox,
   Button,
   Card,
   CardContent,
@@ -851,6 +852,72 @@ function App() {
                 <Spinner size="md" />
                 <Spinner size="lg" />
                 <Spinner size="md" label="Saving..." />
+              </div>
+            </section>
+
+            {/* BreathingBox */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                BreathingBox
+              </h2>
+              <p className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)]">
+                Wraps any child in a subtle breathing scale animation. Default intensity is <code>soft</code> (scale
+                1.02). Ambient decoration only.
+              </p>
+
+              {/* Default, wrapping a card */}
+              <BreathingBox>
+                <Card className="max-w-[400px]">
+                  <CardHeader>
+                    <CardTitle>Default</CardTitle>
+                    <CardDescription>intensity=&quot;soft&quot;, duration=6s</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Hover me, click me, I&apos;m still interactive while I breathe.</p>
+                  </CardContent>
+                </Card>
+              </BreathingBox>
+
+              {/* Three intensities side by side */}
+              <div className="flex flex-wrap gap-[var(--space-xl)]">
+                <BreathingBox intensity="subtle">
+                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent1)]/20 text-[var(--bloom-accent1-deep)]">
+                    subtle
+                  </div>
+                </BreathingBox>
+                <BreathingBox intensity="soft">
+                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent2)]/20 text-[var(--bloom-accent2-deep)]">
+                    soft
+                  </div>
+                </BreathingBox>
+                <BreathingBox intensity="bold">
+                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent3)]/20 text-[var(--bloom-accent3-deep)]">
+                    bold
+                  </div>
+                </BreathingBox>
+              </div>
+
+              {/* asChild pattern */}
+              <div className="flex items-center gap-[var(--space-md)]">
+                <BreathingBox asChild>
+                  <Button variant="primary">Breathing button (asChild)</Button>
+                </BreathingBox>
+              </div>
+
+              {/* Staggered delay */}
+              <div className="flex items-center gap-[var(--space-md)]">
+                <BreathingBox delay={0}>
+                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                </BreathingBox>
+                <BreathingBox delay={1}>
+                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                </BreathingBox>
+                <BreathingBox delay={2}>
+                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                </BreathingBox>
+                <BreathingBox delay={3}>
+                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                </BreathingBox>
               </div>
             </section>
           </div>

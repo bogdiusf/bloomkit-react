@@ -10,6 +10,21 @@
     }
   }
 
+  @keyframes bloom-breathe-subtle {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.01); }
+  }
+
+  @keyframes bloom-breathe-soft {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.02); }
+  }
+
+  @keyframes bloom-breathe-bold {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.04); }
+  }
+
   @keyframes bloom-float {
     0%, 100% {
       transform: translateY(0) scale(1);

@@ -25,6 +25,7 @@ export {
   avatarVariants,
 } from "./components/avatar";
 export { Badge, type BadgeProps, type BadgeVariants, badgeVariants } from "./components/badge";
+export { BreathingBox, type BreathingBoxProps } from "./components/breathing-box";
 
 // Components
 export { Button, type ButtonProps, type ButtonVariants, buttonVariants } from "./components/button";

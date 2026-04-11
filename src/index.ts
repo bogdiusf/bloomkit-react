@@ -80,6 +80,7 @@ export { Separator, type SeparatorProps } from "./components/separator";
 export { Skeleton, type SkeletonProps, type SkeletonVariants, skeletonVariants } from "./components/skeleton";
 export { Slider, type SliderProps } from "./components/slider";
 export { Spinner, type SpinnerProps } from "./components/spinner";
+export { Switch, type SwitchProps } from "./components/switch";
 export {
   Tabs,
   TabsContent,
@@ -91,10 +92,10 @@ export {
 } from "./components/tabs";
 export { type BloomPalette, ThemeProvider, type ThemeProviderProps, useTheme } from "./components/theme";
 export { ToastProvider, type ToastVariants, toastVariants, useToast } from "./components/toast";
-export { Toggle, type ToggleProps } from "./components/toggle";
 export { Tooltip, type TooltipProps, TooltipProvider } from "./components/tooltip";
 export { useBreathing } from "./hooks/use-breathing";
 // Hooks
+export { useIsMobile } from "./hooks/use-is-mobile";
 export { useReducedMotion } from "./hooks/use-reduced-motion";
 export { builtInPalettes, desertRose, midnightGarden, oceanMist } from "./palettes";
 // Utils

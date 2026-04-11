@@ -43,6 +43,7 @@ import {
   Skeleton,
   Slider,
   Spinner,
+  Switch,
   Tabs,
   TabsContent,
   TabsList,
@@ -50,7 +51,6 @@ import {
   Textarea,
   ThemeProvider,
   ToastProvider,
-  Toggle,
   Tooltip,
   TooltipProvider,
   useTheme,
@@ -386,7 +386,7 @@ function App() {
                     {palette === "ocean" ? "● " : "○ "}Ocean Mist
                   </DropdownItem>
                 </Dropdown>
-                <Toggle
+                <Switch
                   label={resolvedMode === "dark" ? "Dark mode" : "Light mode"}
                   checked={resolvedMode === "dark"}
                   onCheckedChange={toggleColorMode}
@@ -466,15 +466,15 @@ function App() {
               </div>
             </section>
 
-            {/* Toggle */}
+            {/* Switch */}
             <section className="flex flex-col gap-[var(--space-lg)]">
               <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
-                Toggle
+                Switch
               </h2>
               <div className="flex flex-col gap-[var(--space-md)]">
-                <Toggle label="Ambient motion" defaultChecked />
-                <Toggle label="Dark mode" />
-                <Toggle label="Disabled" disabled />
+                <Switch label="Ambient motion" defaultChecked />
+                <Switch label="Dark mode" />
+                <Switch label="Disabled" disabled />
               </div>
             </section>
 
@@ -758,9 +758,9 @@ function App() {
                 description="Manage your preferences."
               >
                 <div className="flex flex-col gap-[var(--space-md)] mt-[var(--space-lg)]">
-                  <Toggle label="Notifications" defaultChecked />
-                  <Toggle label="Sound effects" />
-                  <Toggle label="Auto-save" defaultChecked />
+                  <Switch label="Notifications" defaultChecked />
+                  <Switch label="Sound effects" />
+                  <Switch label="Auto-save" defaultChecked />
                 </div>
               </Drawer>
             </section>

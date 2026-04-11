@@ -2,15 +2,15 @@ import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import { cn } from "../../utils/cn";
 
-export interface ToggleProps extends ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {
+export interface SwitchProps extends ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {
   label?: string;
 }
 
-export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ className, label, id: idProp, ...props }, ref) => {
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(({ className, label, id: idProp, ...props }, ref) => {
   const generatedId = useId();
   const id = idProp ?? generatedId;
 
-  const toggle = (
+  const switchControl = (
     <SwitchPrimitive.Root
       ref={ref}
       id={id}
@@ -39,11 +39,11 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ className, l
     </SwitchPrimitive.Root>
   );
 
-  if (!label) return toggle;
+  if (!label) return switchControl;
 
   return (
     <div className="inline-flex items-center gap-[var(--space-md)]">
-      {toggle}
+      {switchControl}
       <label
         htmlFor={id}
         className="text-[length:var(--bloom-text-body)] font-[family-name:var(--bloom-font)] color-[var(--bloom-text)] cursor-pointer"
@@ -53,4 +53,4 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ className, l
     </div>
   );
 });
-Toggle.displayName = "Toggle";
+Switch.displayName = "Switch";

@@ -24,6 +24,10 @@ export const midnightGarden: BloomPalette = {
     "--bloom-radius": "12px",
     "--bloom-radius-lg": "16px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "4px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
   dark: {
     "--bloom-font": "'Cormorant Garamond', serif",
@@ -47,6 +51,10 @@ export const midnightGarden: BloomPalette = {
     "--bloom-radius": "12px",
     "--bloom-radius-lg": "16px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "4px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
 };
 
@@ -74,6 +82,10 @@ export const desertRose: BloomPalette = {
     "--bloom-radius": "20px",
     "--bloom-radius-lg": "28px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "6px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
   dark: {
     "--bloom-font": "'Karla', sans-serif",
@@ -97,6 +109,10 @@ export const desertRose: BloomPalette = {
     "--bloom-radius": "20px",
     "--bloom-radius-lg": "28px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "6px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
 };
 
@@ -124,6 +140,10 @@ export const oceanMist: BloomPalette = {
     "--bloom-radius": "10px",
     "--bloom-radius-lg": "14px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "3px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
   dark: {
     "--bloom-font": "'Nunito', sans-serif",
@@ -147,6 +167,10 @@ export const oceanMist: BloomPalette = {
     "--bloom-radius": "10px",
     "--bloom-radius-lg": "14px",
     "--bloom-radius-pill": "999px",
+    "--bloom-radius-checkbox": "3px",
+    "--bloom-focus-ring-width": "4px",
+    "--bloom-blur-blob": "blur(60px)",
+    "--bloom-blur-card": "blur(40px)",
   },
 };
 

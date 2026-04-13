@@ -32,8 +32,8 @@ import {
   Dropdown,
   DropdownItem,
   DropdownSeparator,
-  FormField,
   Input,
+  Label,
   Modal,
   Navbar,
   OTPInput,
@@ -1077,24 +1077,20 @@ function App() {
               </p>
             </section>
 
-            {/* Form Field */}
+            {/* Label */}
             <section className="flex flex-col gap-[var(--space-lg)]">
               <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
-                Form Field
+                Label
               </h2>
-              <div className="flex flex-col gap-[var(--space-xl)] max-w-[400px]">
-                <FormField label="Full name" htmlFor="ff-name" hint="As it appears on your passport.">
-                  <Input id="ff-name" placeholder="Jane Doe" />
-                </FormField>
-                <FormField label="Email" htmlFor="ff-email" required>
-                  <Input id="ff-email" type="email" placeholder="jane@example.com" />
-                </FormField>
-                <FormField label="Bio" htmlFor="ff-bio" hint="Tell us a little about yourself.">
-                  <Textarea id="ff-bio" placeholder="I'm a..." />
-                </FormField>
-                <FormField label="Email" htmlFor="ff-email-err" error="Please enter a valid email address." required>
-                  <Input id="ff-email-err" type="email" placeholder="jane@example.com" />
-                </FormField>
+              <div className="flex flex-col gap-[var(--space-md)] max-w-[400px]">
+                <div className="flex flex-col gap-[var(--space-xs)]">
+                  <Label htmlFor="lbl-name">Full name</Label>
+                  <Input id="lbl-name" placeholder="Jane Doe" />
+                </div>
+                <div className="flex flex-col gap-[var(--space-xs)]">
+                  <Label htmlFor="lbl-email">Email</Label>
+                  <Input id="lbl-email" type="email" placeholder="jane@example.com" />
+                </div>
               </div>
             </section>
           </div>

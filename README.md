@@ -239,3 +239,7 @@ Contributions are welcome — bug fixes, new components, documentation improveme
 MIT © [Bogdan Filipovici](https://github.com/bogdiusf)
 
 Free to use, modify, fork, and distribute. See [LICENSE](LICENSE) for details.
+
+---
+
+If bloomkit saves you time, [buy me a coffee](https://buymeacoffee.com/bogdanfilipovici) ☕

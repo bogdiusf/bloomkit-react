@@ -220,10 +220,15 @@ The `"bloom"` palette is always available as the default. Any value you don't sp
 | `--bloom-accent3` / `--bloom-accent3-deep` | Info/accent color |
 | `--bloom-accent4` / `--bloom-accent4-deep` | Danger/error color |
 | `--bloom-shadow` / `--bloom-shadow-hover` | Elevation shadows |
+| `--bloom-blur-blob` / `--bloom-blur-card` | Backdrop blur for blob and card surfaces |
 | `--bloom-radius-sm` / `--bloom-radius` / `--bloom-radius-lg` / `--bloom-radius-pill` | Border radius |
+| `--bloom-radius-checkbox` | Checkbox corner radius |
+| `--bloom-text-display-xl` / `--bloom-text-display` / `--bloom-text-heading` / `--bloom-text-subheading` / `--bloom-text-body` / `--bloom-text-caption` / `--bloom-text-micro` | Font size scale |
+| `--bloom-leading-display-xl` / `--bloom-leading-display` / `--bloom-leading-heading` / `--bloom-leading-subheading` / `--bloom-leading-body` / `--bloom-leading-caption` / `--bloom-leading-micro` | Line height scale |
+| `--bloom-letter-wide` / `--bloom-letter-tight` | Letter spacing |
 | `--bloom-duration` / `--bloom-duration-slow` / `--bloom-duration-fast` | Animation timing |
 | `--bloom-ease` | Easing curve |
-| `--space-xs` through `--space-4xl` | Spacing scale |
+| `--space-xs` through `--space-4xl` | Spacing scale (4px → 64px) |
 
 ## Contributing
 

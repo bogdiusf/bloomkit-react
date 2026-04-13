@@ -32,6 +32,7 @@ import {
   Dropdown,
   DropdownItem,
   DropdownSeparator,
+  FormField,
   Input,
   Modal,
   Navbar,
@@ -1074,6 +1075,27 @@ function App() {
                 Floating pill nav — live at the top of this page. Resize the window below 768px to see it collapse to a
                 hamburger and open a drawer.
               </p>
+            </section>
+
+            {/* Form Field */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Form Field
+              </h2>
+              <div className="flex flex-col gap-[var(--space-xl)] max-w-[400px]">
+                <FormField label="Full name" htmlFor="ff-name" hint="As it appears on your passport.">
+                  <Input id="ff-name" placeholder="Jane Doe" />
+                </FormField>
+                <FormField label="Email" htmlFor="ff-email" required>
+                  <Input id="ff-email" type="email" placeholder="jane@example.com" />
+                </FormField>
+                <FormField label="Bio" htmlFor="ff-bio" hint="Tell us a little about yourself.">
+                  <Textarea id="ff-bio" placeholder="I'm a..." />
+                </FormField>
+                <FormField label="Email" htmlFor="ff-email-err" error="Please enter a valid email address." required>
+                  <Input id="ff-email-err" type="email" placeholder="jane@example.com" />
+                </FormField>
+              </div>
             </section>
           </div>
         </div>

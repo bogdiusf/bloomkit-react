@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `Navbar` — floating pill navigation bar, fixed at the top of the viewport, centered, with frosted-glass backdrop blur. Logo left, nav links center, optional CTA right. On mobile collapses to a hamburger button that opens a slide-in Drawer. Supports both uncontrolled (internal state) and controlled (`drawerOpen` / `onDrawerOpenChange`) modes, custom drawer content, and configurable `offsetTop`.
+- `FormField` — layout wrapper that pairs a label, any form control, and optional hint or error text. Error state sets `role="alert"` on the message and turns the label red. Works with any child: `Input`, `Textarea`, `Select`, etc.
 
 ## [0.3.1] - 2026-04-11
 

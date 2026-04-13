@@ -61,6 +61,7 @@ export {
   DropdownSeparator,
   type DropdownSeparatorProps,
 } from "./components/dropdown";
+export { FormField, type FormFieldProps } from "./components/form-field";
 export { Input, type InputProps, inputVariants, Textarea, type TextareaProps } from "./components/input";
 export { Modal, type ModalProps } from "./components/modal";
 export { Navbar, type NavbarLink, type NavbarProps } from "./components/navbar";

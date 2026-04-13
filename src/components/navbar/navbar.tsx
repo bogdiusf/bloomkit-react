@@ -139,7 +139,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
           className={cn(
             "bloom fixed left-1/2 z-40 -translate-x-1/2",
             // Pill shape
-            "flex items-center gap-[var(--space-md)]",
+            "flex items-center gap-[var(--space-md)] whitespace-nowrap",
             "px-[var(--space-lg)] h-[56px]",
             "rounded-[var(--bloom-radius-pill)]",
             // Frosted glass surface
@@ -182,7 +182,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
           )}
 
           {/* CTA — desktop only */}
-          {cta && <div className="hidden md:flex items-center ml-[var(--space-sm)]">{cta}</div>}
+          {cta && <div className="hidden md:flex items-center shrink-0 ml-[var(--space-sm)]">{cta}</div>}
 
           {/* Mobile hamburger */}
           <button

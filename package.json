@@ -1,6 +1,6 @@
 {
   "name": "@bloomkit/react",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "An ambient, organic UI component library. Components that breathe.",
   "type": "module",
   "main": "./dist/index.cjs",

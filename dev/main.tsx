@@ -280,7 +280,32 @@ function App() {
   return (
     <TooltipProvider delayDuration={200}>
       <ToastProvider>
-        <div className="min-h-screen p-[var(--space-3xl)]">
+        <Navbar
+          logo={
+            <span
+              style={{
+                fontFamily: "var(--bloom-font-display)",
+                fontWeight: 500,
+                fontSize: "var(--bloom-text-body)",
+                color: "var(--bloom-text)",
+              }}
+            >
+              bloom<span style={{ color: "var(--bloom-accent1)" }}>kit</span>
+            </span>
+          }
+          links={[
+            { label: "Components", href: "#" },
+            { label: "Docs", href: "#" },
+            { label: "Templates", href: "#" },
+            { label: "Blog", href: "#" },
+          ]}
+          cta={
+            <Button size="sm" variant="primary">
+              Get started
+            </Button>
+          }
+        />
+        <div className="min-h-screen p-[var(--space-3xl)] pt-[96px]">
           <div className="max-w-[800px] mx-auto flex flex-col gap-[var(--space-3xl)]">
             {/* Logo Preview */}
             <section className="flex flex-col items-center gap-[var(--space-lg)]">
@@ -1046,49 +1071,8 @@ function App() {
                 Navbar
               </h2>
               <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-body)] max-w-[480px]">
-                Floating pill nav — fixed at the top of the viewport. Resize the window to see the mobile hamburger. The
-                demo below is inlined in the page so you can see it without scrolling.
-              </p>
-              {/* Inline preview wrapper so it doesn't overlay the rest of the playground */}
-              <div className="relative h-[140px] rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-surface2)]/40 border border-[var(--bloom-surface2)] overflow-hidden">
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    top: "20px",
-                    width: "100%",
-                  }}
-                >
-                  <Navbar
-                    logo={
-                      <span className="font-[family-name:var(--bloom-font-display)] font-medium text-[length:var(--bloom-text-body)] color-[var(--bloom-text)]">
-                        bloom<span className="color-[var(--bloom-accent1)]">kit</span>
-                      </span>
-                    }
-                    links={[
-                      { label: "Features", href: "#" },
-                      { label: "Docs", href: "#", active: true },
-                      { label: "Blog", href: "#" },
-                    ]}
-                    cta={
-                      <Button size="sm" variant="primary">
-                        Get started
-                      </Button>
-                    }
-                    style={{
-                      position: "relative",
-                      top: "auto",
-                      left: "auto",
-                      transform: "none",
-                      maxWidth: "560px",
-                      margin: "0 auto",
-                    }}
-                  />
-                </div>
-              </div>
-              <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-caption)]">
-                On a real page use without the wrapper — it positions itself fixed at the top automatically.
+                Floating pill nav — live at the top of this page. Resize the window below 768px to see it collapse to a
+                hamburger and open a drawer.
               </p>
             </section>
           </div>

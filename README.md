@@ -10,6 +10,14 @@ Soft shapes. Breathing motion. Living color.
 
 > **Early days.** Bloomkit is actively evolving — components are being added and refined week by week. Feedback, issues, and ideas are very welcome.
 
+## What's in the box
+
+**Signature components** — `BreathingBox`, `BloomOrb`, and more coming. Morphing blobs, breathing motion, living color. Ambient decoration that makes an interface feel calm and alive. Every signature component with an animation exposes its animation parameters as props, so you're never stuck with a default cadence. Shape sequences are randomized per-instance (SSR-safe) so no two orbs look alike. **You won't find these in shadcn or Radix — they're why bloomkit exists.**
+
+**The usual primitives** — `Button`, `Input`, `Card`, `Modal`, `AlertDialog`, `Select`, `Tabs`, `Accordion`, `Collapsible`, and the rest of the toolkit every React app needs. Accessible, themeable, Radix-backed where it matters. These exist so bloomkit is a complete library, not just a decoration pack.
+
+Import one or both. The JS tree-shakes, so if you only want primitives you don't pay for the signature components.
+
 ## Install
 
 ```bash

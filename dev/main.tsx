@@ -9,10 +9,12 @@ import {
   AccordionTrigger,
   Alert,
   AlertDescription,
+  AlertDialog,
   AlertTitle,
   Avatar,
   AvatarGroup,
   Badge,
+  BloomOrb,
   BreathingBox,
   Button,
   Card,
@@ -22,6 +24,9 @@ import {
   CardHeader,
   CardTitle,
   Checkbox,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
   DatePicker,
   Drawer,
   Dropdown,
@@ -264,6 +269,7 @@ function ToastDemo() {
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [alertDialogOpen, setAlertDialogOpen] = useState(false);
   const [date, setDate] = useState<Date | undefined>();
   const [progress, setProgress] = useState(60);
   const [otp, setOtp] = useState("");
@@ -394,6 +400,150 @@ function App() {
                 />
               </div>
             </header>
+
+            {/* ═══ Signature Components ═══ */}
+            <section className="flex flex-col gap-[var(--space-xl)] pb-[var(--space-xl)] border-b border-[var(--bloom-surface2)]">
+              <div className="flex flex-col gap-[var(--space-sm)]">
+                <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-display)] font-medium color-[var(--bloom-text)]">
+                  Signature Components
+                </h2>
+                <p className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)] max-w-[600px]">
+                  The components bloomkit exists for. Morphing blobs, breathing motion, living color — ambient
+                  decorations that sit alongside the usual primitives.
+                </p>
+              </div>
+
+              {/* BloomOrb */}
+              <section className="flex flex-col gap-[var(--space-lg)]">
+                <h3 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                  BloomOrb
+                </h3>
+                <p className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)]">
+                  Organic blob that breathes and morphs. Optional content inside. Four color variants, four size presets
+                  plus a custom <code>sizePx</code> override.
+                </p>
+
+                {/* Four sizes side by side */}
+                <div className="flex flex-wrap items-end gap-[var(--space-xl)]">
+                  <BloomOrb size="sm" />
+                  <BloomOrb size="md" />
+                  <BloomOrb size="lg" />
+                  <BloomOrb size="xl" />
+                </div>
+
+                {/* Four color variants */}
+                <div className="flex flex-wrap gap-[var(--space-xl)]">
+                  <BloomOrb color="accent1">1</BloomOrb>
+                  <BloomOrb color="accent2">2</BloomOrb>
+                  <BloomOrb color="accent3">3</BloomOrb>
+                  <BloomOrb color="accent4">4</BloomOrb>
+                </div>
+
+                {/* With content */}
+                <div className="flex flex-wrap gap-[var(--space-xl)]">
+                  <BloomOrb size="lg">JD</BloomOrb>
+                  <BloomOrb size="lg" color="accent2">
+                    42
+                  </BloomOrb>
+                  <BloomOrb size="lg" color="accent3">
+                    ♡
+                  </BloomOrb>
+                </div>
+
+                {/* Animation controls */}
+                <div className="flex flex-wrap items-center gap-[var(--space-xl)]">
+                  <div className="flex flex-col items-center gap-[var(--space-xs)]">
+                    <BloomOrb morphDisabled />
+                    <span className="text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)]">
+                      morphDisabled
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-[var(--space-xs)]">
+                    <BloomOrb breatheDisabled />
+                    <span className="text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)]">
+                      breatheDisabled
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-[var(--space-xs)]">
+                    <BloomOrb breatheScale={1.08} breatheDuration={3} morphDuration={4} />
+                    <span className="text-[length:var(--bloom-text-caption)] color-[var(--bloom-text-secondary)]">
+                      fast + bold breath
+                    </span>
+                  </div>
+                </div>
+              </section>
+
+              {/* BreathingBox */}
+              <section className="flex flex-col gap-[var(--space-lg)]">
+                <h3 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                  BreathingBox
+                </h3>
+                <p className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)]">
+                  Wraps any child in a subtle breathing scale animation. Default intensity is <code>soft</code> (scale
+                  1.02). Pass a custom <code>scale</code> for non-preset values. Ambient decoration only.
+                </p>
+
+                {/* Default, wrapping a card */}
+                <BreathingBox>
+                  <Card className="max-w-[400px]">
+                    <CardHeader>
+                      <CardTitle>Default</CardTitle>
+                      <CardDescription>intensity=&quot;soft&quot;, duration=6s</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p>Hover me, click me, I&apos;m still interactive while I breathe.</p>
+                    </CardContent>
+                  </Card>
+                </BreathingBox>
+
+                {/* Three intensities side by side */}
+                <div className="flex flex-wrap gap-[var(--space-xl)]">
+                  <BreathingBox intensity="subtle">
+                    <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent1)]/20 text-[var(--bloom-accent1-deep)]">
+                      subtle
+                    </div>
+                  </BreathingBox>
+                  <BreathingBox intensity="soft">
+                    <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent2)]/20 text-[var(--bloom-accent2-deep)]">
+                      soft
+                    </div>
+                  </BreathingBox>
+                  <BreathingBox intensity="bold">
+                    <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent3)]/20 text-[var(--bloom-accent3-deep)]">
+                      bold
+                    </div>
+                  </BreathingBox>
+                  <BreathingBox scale={1.08}>
+                    <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent4)]/20 text-[var(--bloom-accent4-deep)]">
+                      scale=1.08
+                    </div>
+                  </BreathingBox>
+                </div>
+
+                {/* asChild pattern */}
+                <div className="flex items-center gap-[var(--space-md)]">
+                  <BreathingBox asChild>
+                    <Button variant="primary">Breathing button (asChild)</Button>
+                  </BreathingBox>
+                </div>
+
+                {/* Staggered delay */}
+                <div className="flex items-center gap-[var(--space-md)]">
+                  <BreathingBox delay={0}>
+                    <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                  </BreathingBox>
+                  <BreathingBox delay={1}>
+                    <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                  </BreathingBox>
+                  <BreathingBox delay={2}>
+                    <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                  </BreathingBox>
+                  <BreathingBox delay={3}>
+                    <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
+                  </BreathingBox>
+                </div>
+              </section>
+            </section>
 
             {/* Buttons */}
             <section className="flex flex-col gap-[var(--space-lg)]">
@@ -650,6 +800,26 @@ function App() {
               </Modal>
             </section>
 
+            {/* AlertDialog */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                AlertDialog
+              </h2>
+              <Button variant="danger" onClick={() => setAlertDialogOpen(true)}>
+                Delete account
+              </Button>
+              <AlertDialog
+                open={alertDialogOpen}
+                onOpenChange={setAlertDialogOpen}
+                title="Delete account?"
+                description="This action cannot be undone. All your data will be permanently removed."
+                confirmLabel="Delete forever"
+                cancelLabel="Keep account"
+                variant="danger"
+                onConfirm={() => setAlertDialogOpen(false)}
+              />
+            </section>
+
             {/* Dropdown */}
             <section className="flex flex-col gap-[var(--space-lg)]">
               <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
@@ -819,6 +989,20 @@ function App() {
               </Accordion>
             </section>
 
+            {/* Collapsible */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Collapsible
+              </h2>
+              <Collapsible className="max-w-[500px]">
+                <CollapsibleTrigger>Show technical details</CollapsibleTrigger>
+                <CollapsibleContent>
+                  Collapsible is the single-item cousin of Accordion. Uses the same animation tokens and respects
+                  reduced motion. Great for inline show-more / hide patterns.
+                </CollapsibleContent>
+              </Collapsible>
+            </section>
+
             {/* Separator */}
             <section className="flex flex-col gap-[var(--space-lg)]">
               <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
@@ -852,72 +1036,6 @@ function App() {
                 <Spinner size="md" />
                 <Spinner size="lg" />
                 <Spinner size="md" label="Saving..." />
-              </div>
-            </section>
-
-            {/* BreathingBox */}
-            <section className="flex flex-col gap-[var(--space-lg)]">
-              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
-                BreathingBox
-              </h2>
-              <p className="text-[length:var(--bloom-text-body)] color-[var(--bloom-text-secondary)]">
-                Wraps any child in a subtle breathing scale animation. Default intensity is <code>soft</code> (scale
-                1.02). Ambient decoration only.
-              </p>
-
-              {/* Default, wrapping a card */}
-              <BreathingBox>
-                <Card className="max-w-[400px]">
-                  <CardHeader>
-                    <CardTitle>Default</CardTitle>
-                    <CardDescription>intensity=&quot;soft&quot;, duration=6s</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Hover me, click me, I&apos;m still interactive while I breathe.</p>
-                  </CardContent>
-                </Card>
-              </BreathingBox>
-
-              {/* Three intensities side by side */}
-              <div className="flex flex-wrap gap-[var(--space-xl)]">
-                <BreathingBox intensity="subtle">
-                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent1)]/20 text-[var(--bloom-accent1-deep)]">
-                    subtle
-                  </div>
-                </BreathingBox>
-                <BreathingBox intensity="soft">
-                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent2)]/20 text-[var(--bloom-accent2-deep)]">
-                    soft
-                  </div>
-                </BreathingBox>
-                <BreathingBox intensity="bold">
-                  <div className="flex h-[120px] w-[120px] items-center justify-center rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-accent3)]/20 text-[var(--bloom-accent3-deep)]">
-                    bold
-                  </div>
-                </BreathingBox>
-              </div>
-
-              {/* asChild pattern */}
-              <div className="flex items-center gap-[var(--space-md)]">
-                <BreathingBox asChild>
-                  <Button variant="primary">Breathing button (asChild)</Button>
-                </BreathingBox>
-              </div>
-
-              {/* Staggered delay */}
-              <div className="flex items-center gap-[var(--space-md)]">
-                <BreathingBox delay={0}>
-                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
-                </BreathingBox>
-                <BreathingBox delay={1}>
-                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
-                </BreathingBox>
-                <BreathingBox delay={2}>
-                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
-                </BreathingBox>
-                <BreathingBox delay={3}>
-                  <div className="h-[60px] w-[60px] rounded-full bg-[var(--bloom-accent1)]" />
-                </BreathingBox>
               </div>
             </section>
           </div>

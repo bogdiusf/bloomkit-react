@@ -10,19 +10,9 @@
     }
   }
 
-  @keyframes bloom-breathe-subtle {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.01); }
-  }
-
   @keyframes bloom-breathe-soft {
     0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.02); }
-  }
-
-  @keyframes bloom-breathe-bold {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.04); }
+    50%      { transform: scale(var(--bloom-breathe-scale, 1.02)); }
   }
 
   @keyframes bloom-float {
@@ -36,16 +26,16 @@
 
   @keyframes bloom-morph {
     0%, 100% {
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      border-radius: var(--bloom-orb-shape-0, 60% 40% 30% 70% / 60% 30% 70% 40%);
     }
     25% {
-      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+      border-radius: var(--bloom-orb-shape-1, 30% 60% 70% 40% / 50% 60% 30% 60%);
     }
     50% {
-      border-radius: 50% 60% 30% 60% / 30% 50% 70% 50%;
+      border-radius: var(--bloom-orb-shape-2, 50% 60% 30% 60% / 30% 50% 70% 50%);
     }
     75% {
-      border-radius: 60% 30% 50% 40% / 70% 40% 60% 30%;
+      border-radius: var(--bloom-orb-shape-3, 60% 30% 50% 40% / 70% 40% 60% 30%);
     }
   }
 
@@ -63,6 +53,28 @@
   @keyframes bloom-accordion-close {
     from {
       height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes bloom-collapsible-open {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bloom-collapsible-close {
+    from {
+      height: var(--radix-collapsible-content-height);
       opacity: 1;
     }
     to {

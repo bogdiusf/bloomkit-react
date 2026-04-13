@@ -16,6 +16,7 @@ export {
   type AlertVariants,
   alertVariants,
 } from "./components/alert";
+export { AlertDialog, type AlertDialogProps } from "./components/alert-dialog";
 export {
   Avatar,
   AvatarGroup,
@@ -25,6 +26,7 @@ export {
   avatarVariants,
 } from "./components/avatar";
 export { Badge, type BadgeProps, type BadgeVariants, badgeVariants } from "./components/badge";
+export { BloomOrb, type BloomOrbProps, type BloomOrbVariants, bloomOrbVariants } from "./components/bloom-orb";
 export { BreathingBox, type BreathingBoxProps } from "./components/breathing-box";
 
 // Components
@@ -41,6 +43,14 @@ export {
   cardVariants,
 } from "./components/card";
 export { Checkbox, type CheckboxProps } from "./components/checkbox";
+export {
+  Collapsible,
+  CollapsibleContent,
+  type CollapsibleContentProps,
+  type CollapsibleProps,
+  CollapsibleTrigger,
+  type CollapsibleTriggerProps,
+} from "./components/collapsible";
 export { DatePicker, type DatePickerProps } from "./components/date-picker";
 export { Drawer, type DrawerProps, type DrawerSide } from "./components/drawer";
 export {

@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-04-11
+
+### Added
+
+- `BloomOrb` — organic blob that breathes and morphs. The second signature component. Four preset sizes (`sm` / `md` / `lg` / `xl`) plus `sizePx` escape hatch, four accent color variants, configurable `breatheScale` / `breatheDuration` / `morphDuration`, toggles to disable either animation independently. Each orb generates a unique shape sequence seeded from React's `useId` so multiple orbs on the same page never look identical — SSR-safe, no hydration mismatch, no runtime JS animation. Optional `shapeSeed` prop lets you lock in deterministic shapes for tests or snapshots.
+- `AlertDialog` — focus-trapping confirmation dialog built on `@radix-ui/react-alert-dialog`. Forces a confirm-or-cancel decision and doesn't auto-close on outside click. Opinionated API with `title`/`description`/`confirmLabel`/`cancelLabel`/`variant` props for the common destructive-confirmation pattern, plus optional `children` for custom bodies.
+- `Collapsible` — single-item expand/collapse built on `@radix-ui/react-collapsible`. The simpler cousin of `Accordion` for one-off show-more sections. Shares the same animation tokens and cadence as `Accordion` so the motion feels consistent.
+- `BreathingBox` — new `scale` prop for custom breathing intensity beyond the three `intensity` presets. Pass `scale={1.06}` (or any number) to set a peak scale factor directly. `intensity` remains as a preset shortcut. The three separate keyframes have been replaced with a single `bloom-breathe-soft` keyframe that reads a CSS custom property, so intensity variation happens at the inline-style level with zero CSS bloat.
+
+### Changed
+
+- **Signature components are now a top-level category.** `BreathingBox` and `BloomOrb` are grouped under a new "Signature" section in the README and the component reference, separate from the usual Form / Layout / Feedback / Overlays primitives. The library's positioning is now explicit: bloomkit ships the usual React primitives *plus* a set of ambient signature components that make an interface feel alive — the components bloomkit exists for.
+
 ## [0.3.0] - 2026-04-11
 
 ### Added

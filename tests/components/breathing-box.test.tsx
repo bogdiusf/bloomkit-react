@@ -13,7 +13,7 @@ describe("BreathingBox", () => {
     expect(screen.getByText("hello")).toBeInTheDocument();
   });
 
-  it("applies the default (soft) breathing keyframe", () => {
+  it("applies the bloom-breathe-soft keyframe", () => {
     const { container } = render(
       <BreathingBox>
         <span>hi</span>
@@ -23,24 +23,54 @@ describe("BreathingBox", () => {
     expect(wrapper.style.animationName).toBe("bloom-breathe-soft");
   });
 
-  it("applies subtle keyframe when intensity='subtle'", () => {
+  it("defaults to soft intensity (scale 1.02)", () => {
+    const { container } = render(
+      <BreathingBox>
+        <span>hi</span>
+      </BreathingBox>
+    );
+    const wrapper = container.firstChild as HTMLElement;
+    expect(wrapper.style.getPropertyValue("--bloom-breathe-scale")).toBe("1.02");
+  });
+
+  it("maps intensity='subtle' to scale 1.01", () => {
     const { container } = render(
       <BreathingBox intensity="subtle">
         <span>hi</span>
       </BreathingBox>
     );
     const wrapper = container.firstChild as HTMLElement;
-    expect(wrapper.style.animationName).toBe("bloom-breathe-subtle");
+    expect(wrapper.style.getPropertyValue("--bloom-breathe-scale")).toBe("1.01");
   });
 
-  it("applies bold keyframe when intensity='bold'", () => {
+  it("maps intensity='bold' to scale 1.04", () => {
     const { container } = render(
       <BreathingBox intensity="bold">
         <span>hi</span>
       </BreathingBox>
     );
     const wrapper = container.firstChild as HTMLElement;
-    expect(wrapper.style.animationName).toBe("bloom-breathe-bold");
+    expect(wrapper.style.getPropertyValue("--bloom-breathe-scale")).toBe("1.04");
+  });
+
+  it("accepts a custom scale prop", () => {
+    const { container } = render(
+      <BreathingBox scale={1.06}>
+        <span>hi</span>
+      </BreathingBox>
+    );
+    const wrapper = container.firstChild as HTMLElement;
+    expect(wrapper.style.getPropertyValue("--bloom-breathe-scale")).toBe("1.06");
+  });
+
+  it("prefers explicit scale over intensity when both are passed", () => {
+    const { container } = render(
+      <BreathingBox intensity="subtle" scale={1.08}>
+        <span>hi</span>
+      </BreathingBox>
+    );
+    const wrapper = container.firstChild as HTMLElement;
+    expect(wrapper.style.getPropertyValue("--bloom-breathe-scale")).toBe("1.08");
   });
 
   it("applies the duration prop to animation-duration", () => {

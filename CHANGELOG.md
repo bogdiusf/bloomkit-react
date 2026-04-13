@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `Navbar` — floating pill navigation bar, fixed at the top of the viewport, centered, with frosted-glass backdrop blur. Logo left, nav links center, optional CTA right. On mobile collapses to a hamburger button that opens a slide-in Drawer. Supports both uncontrolled (internal state) and controlled (`drawerOpen` / `onDrawerOpenChange`) modes, custom drawer content, and configurable `offsetTop`.
+
 ## [0.3.1] - 2026-04-11
 
 ### Added

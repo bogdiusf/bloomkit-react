@@ -63,6 +63,7 @@ export {
 } from "./components/dropdown";
 export { Input, type InputProps, inputVariants, Textarea, type TextareaProps } from "./components/input";
 export { Modal, type ModalProps } from "./components/modal";
+export { Navbar, type NavbarLink, type NavbarProps } from "./components/navbar";
 export { OTPInput, type OTPInputProps } from "./components/otp-input";
 export { Popover, type PopoverProps } from "./components/popover";
 export {

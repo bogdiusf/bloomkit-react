@@ -34,6 +34,7 @@ import {
   DropdownSeparator,
   Input,
   Modal,
+  Navbar,
   OTPInput,
   Popover,
   Progress,
@@ -1037,6 +1038,58 @@ function App() {
                 <Spinner size="lg" />
                 <Spinner size="md" label="Saving..." />
               </div>
+            </section>
+
+            {/* Navbar */}
+            <section className="flex flex-col gap-[var(--space-lg)]">
+              <h2 className="font-[family-name:var(--bloom-font-display)] text-[length:var(--bloom-text-heading)] font-medium color-[var(--bloom-text)]">
+                Navbar
+              </h2>
+              <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-body)] max-w-[480px]">
+                Floating pill nav — fixed at the top of the viewport. Resize the window to see the mobile hamburger. The
+                demo below is inlined in the page so you can see it without scrolling.
+              </p>
+              {/* Inline preview wrapper so it doesn't overlay the rest of the playground */}
+              <div className="relative h-[140px] rounded-[var(--bloom-radius-lg)] bg-[var(--bloom-surface2)]/40 border border-[var(--bloom-surface2)] overflow-hidden">
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    top: "20px",
+                    width: "100%",
+                  }}
+                >
+                  <Navbar
+                    logo={
+                      <span className="font-[family-name:var(--bloom-font-display)] font-medium text-[length:var(--bloom-text-body)] color-[var(--bloom-text)]">
+                        bloom<span className="color-[var(--bloom-accent1)]">kit</span>
+                      </span>
+                    }
+                    links={[
+                      { label: "Features", href: "#" },
+                      { label: "Docs", href: "#", active: true },
+                      { label: "Blog", href: "#" },
+                    ]}
+                    cta={
+                      <Button size="sm" variant="primary">
+                        Get started
+                      </Button>
+                    }
+                    style={{
+                      position: "relative",
+                      top: "auto",
+                      left: "auto",
+                      transform: "none",
+                      maxWidth: "560px",
+                      margin: "0 auto",
+                    }}
+                  />
+                </div>
+              </div>
+              <p className="color-[var(--bloom-text-secondary)] text-[length:var(--bloom-text-caption)]">
+                On a real page use without the wrapper — it positions itself fixed at the top automatically.
+              </p>
             </section>
           </div>
         </div>
